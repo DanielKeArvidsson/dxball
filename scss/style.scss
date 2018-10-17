@@ -1,0 +1,11 @@
+// Variable overrides for Bootstrap
+@import 'variable-overrides';
+// The whole Bootstrap library
+@import 'bootstrap/bootstrap';
+// My own partials
+@import 'body-related';
+@import 'old-css';
+
+header, footer, body{
+    font-family: 'Montserrat', sans-serif;
+}
