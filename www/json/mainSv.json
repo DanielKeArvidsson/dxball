@@ -1,0 +1,38 @@
+{
+"navBarSv": {
+    "sv":[
+        {
+            "hem": "<a>Hem<\/a>",
+            "history": "<a>Historia om Breakout<\/a>",
+            "spelet": "<a>Vårat spel<\/a>",
+            "flagSv": "<a>Svenska<\/a>",
+            "flagEn": "<a>English<\/a>"
+        }
+    ]
+},
+"texthistorySv": {
+   "sv": [
+       {
+        "spelet": "<p>Spelet breakout är ett arkardspel skapat av atari som släpptes 1976. Breakout går ut på att man ska få en boll att studsa på en paddel som man kan flytta på, med hjälp av paddeln ska man få bollen att träffa brickor som täcker den övre delen av skärmen. När bollen träffar en bricka så studsar bollen på den och brickan försvinner, missar man att få bollen att studsa på paddeln så är spelet över. Spelet är inspirerat av spelet Pong som kom 1972 även det skapat av Atari. Både Steve Jobs och Steve Wozniak var med och skapade spelet och Breakout var bas och inspriration till vissa delar av Appel II.<\/p>"
+       }
+    ]
+},
+"footerSv":{
+    "sv": [
+        {
+        "adressH5": "<h5>Adress < \/h5>", 
+        "adressP": "<p class=\"mb-0\" > Grupp1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
+        },
+        {
+        "phoneH5": "<h5>Telefon<\/h5>",
+        "phoneP": "<p class=\"mb-0\">Tel växel: 040-123 45 67 <br \/> Mobil: 073-234 56 78<\/p>"
+        },
+        {
+        "emailH5": "<h5 class=\"mt-3 mt-md-0\"> E-post<\/h5>",
+        "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
+        }
+    ]
+    }
+}
+
+
