@@ -21,6 +21,22 @@ main{
     left:350px;
 }
  
+
+
+ .normal {
+     position:absolute;
+     top:5px;
+     left:125px;
+     cursor:pointer;
+ }
+ .hard {
+     position:absolute;
+     top:5px;
+     left:200px;
+     cursor:pointer;
+ }
+
+
 .en{
     display: none;
 }
