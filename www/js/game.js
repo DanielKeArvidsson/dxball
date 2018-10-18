@@ -13,7 +13,8 @@ let currentKey;
 $(window).keydown(function (e) {
   if (e.which === 37) { currentKey = 'left'; }
   if (e.which === 39) { currentKey = 'right'; }
-  if (e.which === 13) { playAgain(); }
+  if (e.which === 72) { playAgainHard(); }
+  if (e.which === 78) { playAgainNormal(); }
 });
 
 $(window).keyup(function () {
@@ -78,7 +79,19 @@ function restartBallAnimation() {
 }
 
 // Play again - reset variables and play again
-function playAgain() {
+function playAgainHard() {
+  $(".paddle").css("width", "100px");
+  lives = 3;
+  score = 0;
+  $('.score span').text('00000');
+  $('.lives span').text(3);
+  paused = false;
+  $('.game-over').hide();
+  restartBallAnimation();
+}
+
+function playAgainNormal() {
+  $(".paddle").css("width", "200px");
   lives = 3;
   score = 0;
   $('.score span').text('00000');
