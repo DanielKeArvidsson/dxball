@@ -1,3 +1,4 @@
+
 // Main variables
 let lives = 3;
 let score = 0;
@@ -70,7 +71,7 @@ setInterval(function () {
 // by cloning the ball
 function restartBallAnimation() {
   let $oldBall = $ballX;
-  $ballX = $ballX.clone().appendTo('body');
+  $ballX = $ballX.clone().appendTo('.game');
   $oldBall.remove();
   $ballY = $('.ballY');
   $('.ball-paused').removeClass('ball-paused');
