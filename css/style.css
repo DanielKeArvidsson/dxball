@@ -9619,7 +9619,7 @@ body {
   font-family: 'spacetech' !important;
 }
 
-main.home, main.gamePlay, main.about, main.contacts {
+main.home, main.gamePlay, main.about, main.contact {
   display: none;
 }
 
