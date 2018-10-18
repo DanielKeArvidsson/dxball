@@ -57,7 +57,7 @@ setInterval(function () {
         setTimeout(function () {
           restartBallAnimation();
           paused = false;
-        }, 1000);
+        }, 100);
       }
       else {
         $('.game-over').fadeIn(1000);
