@@ -2,9 +2,9 @@
 "navBarSv": {
     "sv":[
         {
-            "hem": "<a>Hem<\/a>",
-            "history": "<a>Historia om Breakout<\/a>",
-            "spelet": "<a>Vårt spel<\/a>",
+            "hem": "<p>Hem<\/p>",
+            "history": "<p>Historia om Breakout<\/p>",
+            "spelet": "<p>Vårt spel<\/p>",
             "flagSv": "<a>Svenska<\/a>",
             "flagEn": "<a>English<\/a>"
         }
@@ -20,7 +20,7 @@
 "footerSv":{
     "sv": [
         {
-        "adressH5": "<h5>Adress < \/h5>", 
+        "adressH5": "<h5>Adress <\/h5>", 
         "adressP": "<p class=\"mb-0\" > Grupp1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
         },
         {
