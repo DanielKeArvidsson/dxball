@@ -22,7 +22,7 @@ $(document).on('click', 'a', function(e){
   // The router (do whatever you want here)
   function frontendRouter(path){
     let routes = {
-      '/': () => { $('body main > *').hide(); $('.start-page').show(); },
+      '/': () => { $('body main > *').hide(); $('.home').show(); },
       '/about': () => { $('body main > *').hide(); $('.about').show(); },
       '/gamePlay': () => { $('body main > *').hide(); $('.gamePlay').show(); },
       '/contacts': () => { $('body main > *').hide(); $('.contacts').show(); },
