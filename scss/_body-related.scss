@@ -9,8 +9,8 @@ body {
     font-family: 'spacetech' !important;
 }
 
-//main{
-//    &.home, &.gamePlay, &.about, &.contacts {
-//       display: none;
-//     }
-// }
+main{
+    &.home, &.gamePlay, &.about, &.contacts {
+       display: none;
+     }
+ }
