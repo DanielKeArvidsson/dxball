@@ -24,3 +24,9 @@ function engLang(myLang) {
     }
   }
 }
+$(document).on('click', '.normal', function(){
+  $(".paddle").css("width", "200px");
+});
+$(document).on('click', '.hard', function(){
+  $(".paddle").css("width", "100px");
+});
