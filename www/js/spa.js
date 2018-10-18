@@ -25,7 +25,7 @@ $(document).on('click', 'a', function(e){
       '/': () => { $('body main > *').hide(); $('.home').show(); },
       '/about': () => { $('body main > *').hide(); $('.about').show(); },
       '/gamePlay': () => { $('body main > *').hide(); $('.gamePlay').show(); },
-      '/contacts': () => { $('body main > *').hide(); $('.contacts').show(); },
+      '/contact': () => { $('body main > *').hide(); $('.contact').show(); },
     };
     // no path found then change path to '/404';
     path = routes[path] ? path : '/404';

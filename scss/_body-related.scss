@@ -10,7 +10,7 @@ body {
 }
 
 main{
-    &.home, &.gamePlay, &.about, &.contacts {
+    &.home, &.gamePlay, &.about, &.contact {
        display: none;
      }
  }
