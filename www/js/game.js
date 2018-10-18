@@ -29,8 +29,8 @@ setInterval(function () {
     let step = Math.min(paddleStep, paddleX)
     $paddle.animate({ left: paddleX - step }, 100);
   }
-  if (currentKey == 'right' && paddleX < $(window).width() - $paddle.outerWidth()) {
-    let step = Math.min(paddleStep, $(window).width() - $paddle.outerWidth() - paddleX)
+  if (currentKey == 'right' && paddleX < $('.game').width() - $paddle.outerWidth()) {
+    let step = Math.min(paddleStep, $('.game').width() - $paddle.outerWidth() - paddleX)
     $paddle.animate({ left: paddleX + step }, 100);
   }
 
