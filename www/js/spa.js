@@ -24,8 +24,8 @@ $(document).on('click', 'a', function(e){
     let routes = {
       '/': () => { $('body main > *').hide(); $('.start-page').show(); },
       '/about': () => { $('body main > *').hide(); $('.about').show(); },
-      '/cool': () => { $('body main > *').hide(); $('.cool').show(); },
-      '/404': () => { $('body main > *').hide(); $('.the404').show(); },
+      '/gamePlay': () => { $('body main > *').hide(); $('.gamePlay').show(); },
+      '/contacts': () => { $('body main > *').hide(); $('.contacts').show(); },
     };
     // no path found then change path to '/404';
     path = routes[path] ? path : '/404';
