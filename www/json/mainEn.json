@@ -2,9 +2,10 @@
   "navBarEn": {
     "en": [
       {
-        "home": "<a>Home<\/a>",
-        "history": "<a>The History of Breakout<\/a>",
-        "spelet": "<a>Our game<\/a>",
+        "home": "<p>Home<\/p>",
+        "history": "<p>The History of Breakout<\/p>",
+        "spelet": "<p>Our game<\/p>",
+        "kontakt": "<p>Contact us<\/p>",
         "flagSv": "<a>Svenska<\/a>",
         "flagEn": "<a>English<\/a>"
       }
@@ -20,7 +21,7 @@
   "footerEn": {
     "en": [
       {
-      "adressH5": "<h5>Address < \/h5>", 
+      "adressH5": "<h5>Address <\/h5>", 
       "adressP": "<p class=\"mb-0\" > Group1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
       },
       {
