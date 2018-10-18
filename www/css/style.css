@@ -6780,11 +6780,29 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
-main.home, main.gamePlay, main.about, main.contacts {
+body {
+  font-family: 'Orbitron', sans-serif !important; }
+
+@font-face {
+  font-family: 'spacetech';
+  src: url("/fonts/Spacetech.ttf"); }
+.navbar-brand {
+  font-family: 'spacetech' !important; }
+
+main.home, main.gamePlay, main.about, main.contact {
   display: none; }
 
-main.home, main.gamePlay, main.about, main.contacts {
-  display: none; }
+.normal {
+  position: absolute;
+  top: 5px;
+  left: 125px;
+  cursor: pointer; }
+
+.hard {
+  position: absolute;
+  top: 5px;
+  left: 200px;
+  cursor: pointer; }
 
 html {
   height: 100%; }
