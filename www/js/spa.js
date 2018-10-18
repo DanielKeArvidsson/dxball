@@ -18,9 +18,12 @@ $(document).on('click', 'a', function(e){
    
   // On page load
   frontendRouter(location.pathname);
+  
+  
    
   // The router (do whatever you want here)
   function frontendRouter(path){
+      
     let routes = {
       '/': () => { $('body main > *').hide(); $('.home').show(); },
       '/about': () => { $('body main > *').hide(); $('.about').show(); },
