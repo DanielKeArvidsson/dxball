@@ -10,9 +10,11 @@ body {
 }
 
 main{
-    &.home, &.gamePlay, &.about, &.contact {
+    &.home, &.gamePlay, &.about, &.contacts {
        display: none;
+         }
      }
+<<<<<<< HEAD
  }
 
  .normal {
@@ -27,3 +29,5 @@ main{
      left:200px;
      cursor:pointer;
  }
+=======
+>>>>>>> master
