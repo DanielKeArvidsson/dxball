@@ -2,6 +2,14 @@
 const express = require('express');
 // Create a new web server
 const app = express();
+
+const Sass = require('./sass');
+const config = require('./config.json');
+
+for(let conf of config.sass){
+    new Sass(conf);
+}
+
 // Tell the web server to serve files
 // from the www folder
 app.use(express.static('www'));
