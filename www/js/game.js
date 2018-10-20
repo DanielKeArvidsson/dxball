@@ -82,7 +82,6 @@ function restartBallAnimation() {
 
 // Play again - reset variables and play again
 function playAgainHard() {
-  $(".ballY").css("animation", "ball-animation-vertical 4s linear infinite alternate");
   $(".paddle").css("width", "100px");
   $(".paddle").css("background-image", "url('/images/paddlesmall.png')");
   lives = 3;
@@ -95,7 +94,6 @@ function playAgainHard() {
 }
 
 function playAgainNormal() {
-  $(".ballY").css("animation", "ball-animation-vertical 5s linear infinite alternate");
   $(".paddle").css("width", "200px");
   $(".paddle").css("background-image", "url('/images/paddle.png')");
   lives = 3;
