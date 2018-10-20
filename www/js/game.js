@@ -15,6 +15,7 @@ $(window).keydown(function (e) {
   if (e.which === 39) { currentKey = 'right'; }
   if (e.which === 72) { playAgainHard(); }
   if (e.which === 78) { playAgainNormal(); }
+  if (e.which === 80) { pauseGame(); }
 });
 
 $(window).keyup(function () {
@@ -27,7 +28,7 @@ setInterval(function () {
   // paddle movement
   let paddleX = $paddle.position().left;
   if (currentKey == 'left' && paddleX > 0) {
-    let step = Math.min(paddleStep, paddleX)
+    let step = Math.min(paddleStep, paddleX);
     $paddle.animate({ left: paddleX - step }, 100);
   }
   if (currentKey == 'right' && paddleX < $('.game').width() - $paddle.outerWidth()) {
@@ -38,10 +39,10 @@ setInterval(function () {
   // Check for hits and misses
   let x = $ballX.position().left;
   let y = $ballY.position().top;
-  if (y >= $(window).height() - $ballY.height() - 20) {
+  if (y >= $('.game').height() - $ballY.height() - 20) {
     let paddleX1 = $paddle.position().left;
     let paddleX2 = paddleX1 + $paddle.outerWidth();
-    if (paddleX1 - $ballY.width() <= x && paddleX2 + $ballY.width() >= x) {
+    if (paddleX1 - $ballY.width() <= x && paddleX2 + $ballY.width() >= x && !paused) {
       // the player caught the ball with the paddle
       score += 10;
       $('.score span').text((score + '').padStart(5, '0'));
@@ -62,6 +63,7 @@ setInterval(function () {
       }
       else {
         $('.game-over').fadeIn(1000);
+        $ballX.remove();
       }
     }
   }
@@ -80,7 +82,9 @@ function restartBallAnimation() {
 
 // Play again - reset variables and play again
 function playAgainHard() {
+  $(".ballY").css("animation", "ball-animation-vertical 4s linear infinite alternate");
   $(".paddle").css("width", "100px");
+  $(".paddle").css("background-image", "url('/images/paddlesmall.png')");
   lives = 3;
   score = 0;
   $('.score span').text('00000');
@@ -91,7 +95,9 @@ function playAgainHard() {
 }
 
 function playAgainNormal() {
+  $(".ballY").css("animation", "ball-animation-vertical 5s linear infinite alternate");
   $(".paddle").css("width", "200px");
+  $(".paddle").css("background-image", "url('/images/paddle.png')");
   lives = 3;
   score = 0;
   $('.score span').text('00000');
@@ -101,5 +107,16 @@ function playAgainNormal() {
   restartBallAnimation();
 }
 
+function pauseGame() {
+  if(!paused) {
+    $ballX.addClass('ball-paused');
+    $ballY.addClass('ball-paused');
+    paused = true;
+  }
+  else{
+    $('.ball-paused').removeClass('ball-paused');
+    paused = false;
+  }
+}
 
 

@@ -1,3 +1,4 @@
+
 html {
     height: 100%;
 }
@@ -32,13 +33,15 @@ html {
     position: absolute;
     width: 100%;
     text-align: center;
-    top: 150px;
+    top: 25vh;
   }
   
   .paddle {
     width: 200px;
     height: 30px;
-    background-color: #999;
+    border-radius: 30px;
+    background-image:url('/images/paddle.png');
+    background-size:cover;
     position: absolute;
     z-index: 1;
     bottom: 0;
@@ -55,7 +58,7 @@ html {
     position: absolute;
     height: 30px;
     width: 30px;
-    background-color: #000;
+    background-size:cover;
     border-radius: 50%;
     animation: ball-animation-vertical 5s linear infinite alternate;
   }
@@ -70,6 +73,6 @@ html {
   }
   
   @keyframes ball-animation-vertical {
-    0%   {top: 0}
-    100%  {top: calc(100% - 40px)}
+    0%   {top: 0; background-image:url('/images/ball.png');}
+    100%  {top: calc(100% - 40px); background-image:url('/images/ball.png');}
   }
