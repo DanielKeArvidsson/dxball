@@ -36,10 +36,7 @@ main{
     display:none;
 }
  
-.game-over{
-    color: #FE1300; // $color-secondary-2-3
 
-}
 .short-text {
     display: none;
 }
@@ -57,6 +54,6 @@ main{
 
 .game {
     background-image:url('/images/gamebg.png');
-    
+    color:#000;
 }
 
