@@ -1,5 +1,8 @@
-body {
+body, h2 {
     font-family: 'Orbitron', sans-serif !important;
+    color: #FFB71C;
+    
+  
 }
 @font-face {
     font-family: 'spacetech';
@@ -9,14 +12,19 @@ body {
     font-family: 'spacetech' !important;
 }
 .about {
-    font-family: arial;
+    font-family: 'Montserrat', sans-serif !important;
+    margin-top: 3px;
+    color: #000;
+    padding: 10px;
+    
 }
+
 
 main{
     &.home, &.gamePlay, &.about, &.contacts {
        display: none;
-         }
      }
+    }
  
 .difficulty {
     position:absolute;
@@ -27,7 +35,11 @@ main{
 .en {
     display:none;
 }
+ 
+.game-over{
+    color: #FE1300; // $color-secondary-2-3
 
+}
 .short-text {
     display: none;
 }
