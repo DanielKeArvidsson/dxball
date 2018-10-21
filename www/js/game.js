@@ -8,19 +8,26 @@ let $ballY = $('.ballY');
 let $paddle = $('.paddle');
 let paddleStep = 80;
 let currentKey;
+let gameMode = false;
+
 
 // Read keys
 $(window).keydown(function (e) {
-  if (e.which === 37) { currentKey = 'left'; }
-  if (e.which === 39) { currentKey = 'right'; }
-  if (e.which === 72) { playAgainHard(); }
-  if (e.which === 78) { playAgainNormal(); }
-  if (e.which === 80) { pauseGame(); }
+  if (e.which === 37 && !paused) { currentKey = 'left'; }
+  if (e.which === 39 && !paused) { currentKey = 'right'; }
+  if (e.which === 72 && gameMode) { playAgainHard(); }
+  if (e.which === 78 && gameMode) { playAgainNormal(); }
+  if (e.which === 80 && !gameMode) { pauseGame(); }
 });
 
 $(window).keyup(function () {
   currentKey = '';
 });
+
+$ballX.remove();
+paused = true;
+$('.gameStart').show();
+gameMode = true;
 
 // Game loop
 setInterval(function () {
@@ -52,8 +59,9 @@ setInterval(function () {
       paused = true;
       $ballX.addClass('ball-paused');
       $ballY.addClass('ball-paused');
+      $('.heart' + lives).hide();
       lives--;
-      $('.lives span').text(lives);
+      
       // if there are lives left continue after a second
       if (lives > 0) {
         setTimeout(function () {
@@ -64,10 +72,10 @@ setInterval(function () {
       else {
         $('.game-over').fadeIn(1000);
         $ballX.remove();
+        gameMode = true;        
       }
     }
   }
-
 }, 100);
 
 // Restart ball animation from top left
@@ -82,26 +90,32 @@ function restartBallAnimation() {
 
 // Play again - reset variables and play again
 function playAgainHard() {
+  $(".ballY").css("animation", "ball-animation-vertical 4s linear infinite alternate");
   $(".paddle").css("width", "100px");
   $(".paddle").css("background-image", "url('/images/paddlesmall.png')");
   lives = 3;
   score = 0;
-  $('.score span').text('00000');
-  $('.lives span').text(3);
+  $('.score span').text('00000');  
   paused = false;
   $('.game-over').hide();
+  gameMode = false;
+  $('.gameStart').hide();
+  $('.heart1,.heart2,.heart3').show();
   restartBallAnimation();
 }
 
 function playAgainNormal() {
+  $(".ballY").css("animation", "ball-animation-vertical 5s linear infinite alternate");
   $(".paddle").css("width", "200px");
   $(".paddle").css("background-image", "url('/images/paddle.png')");
   lives = 3;
   score = 0;
-  $('.score span').text('00000');
-  $('.lives span').text(3);
+  $('.score span').text('00000');  
   paused = false;
   $('.game-over').hide();
+  gameMode = false;
+  $('.gameStart').hide();
+  $('.heart1,.heart2,.heart3').show();
   restartBallAnimation();
 }
 
@@ -109,10 +123,12 @@ function pauseGame() {
   if(!paused) {
     $ballX.addClass('ball-paused');
     $ballY.addClass('ball-paused');
+    $('.pausedGame').show();
     paused = true;
   }
   else{
     $('.ball-paused').removeClass('ball-paused');
+    $('.pausedGame').hide();
     paused = false;
   }
 }

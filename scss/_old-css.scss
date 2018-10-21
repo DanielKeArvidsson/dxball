@@ -20,6 +20,7 @@ html {
     position: absolute;
     top: 5px;;
     right: 10px;
+    
   }
   
   .lives {
@@ -30,10 +31,12 @@ html {
   
   .game-over {
     display:none;
+    font-size:22px;
     position: absolute;
     width: 100%;
     text-align: center;
     top: 25vh;
+    
   }
   
   .paddle {
@@ -45,6 +48,7 @@ html {
     position: absolute;
     z-index: 1;
     bottom: 0;
+    left:25vw;
   }
   
   .ballX {
@@ -64,7 +68,7 @@ html {
   }
 
   .ball-paused {
-    animation-play-state: paused;
+    animation-play-state: paused !important;
   }
   
   @keyframes ball-animation-horizontal {
@@ -73,6 +77,10 @@ html {
   }
   
   @keyframes ball-animation-vertical {
-    0%   {top: 0; background-image:url('/images/ball.png');}
-    100%  {top: calc(100% - 40px); background-image:url('/images/ball.png');}
+    0%   {top: 0; background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
+    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
   }
+
+
+
+  

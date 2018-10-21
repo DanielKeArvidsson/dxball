@@ -26,34 +26,51 @@ main{
      }
     }
  
-.difficulty {
-    position:absolute;
-    top:5px;
-    width: 100%;
-    text-align:center;
-}
 .en {
     display:none;
 }
  
-
-.short-text {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .short-text { display: inline-block; }
-    .full-text { display: none; }
-}
-
-.pauseButton {
-    position:absolute;
-    top:35px;
-    right:10px;
-}
-
 .game {
     background-image:url('/images/gamebg.png');
     color:#000;
 }
 
+.pausedGame {
+    display:none;
+    position: absolute;
+    font-size:20px;
+    width: 100%;
+    text-align: center;
+    top: 25vh;
+  }
+
+  .gameStart {
+    font-size:22px;
+    display:none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25vh;
+        
+  }
+
+  @keyframes start-animation {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff0000, 0 0 35px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 75px #ff0000;
+    }
+  }
+
+  .startGameText {
+      font-family:'spacetech';
+      font-size:60px;
+      color:#8b0000;
+      animation: start-animation 1.5s ease-in-out infinite alternate;
+  }
+
+  .gameOverText {
+      font-size:40px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
