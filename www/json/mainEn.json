@@ -33,5 +33,13 @@
       "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
       }
     ]
-  }
+  },
+  "textContacts": {
+    "en": [
+        {
+        "kontakttele": "<p>Phone 0401234567 <br \/> Cell phone 0732345678 <br\/> e-mail info@grupp1.com <br\/> or drop in at our place at nordenskiöldsgatan 13 i Malmö<\/p>",
+         "kontakt": "Contact us"
+        }
+     ]
+ }
 }

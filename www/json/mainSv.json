@@ -33,7 +33,15 @@
         "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
         }
     ]
-    }
+    },
+"textContacts": {
+    "sv": [
+        {
+        "kontakttele": "<p>Telefon växel 0401234567 <br \/> mobil 0732345678 <br\/> epost info@grupp1.com <br\/> eller kom och besök oss på nordenskiöldsgatan 13 i Malmö<\/p>",
+         "kontakt": "Kontakta oss "
+        }
+     ]
+ }
 }
 
 
