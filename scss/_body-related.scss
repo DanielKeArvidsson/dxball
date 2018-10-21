@@ -45,6 +45,11 @@ main{
     border-bottom: 2px solid black;
 }
 
+picture > a > img{
+    max-width: 100%;
+    min-height: 200px;
+}
+
 .pausedGame {
     display:none;
     position: absolute;
