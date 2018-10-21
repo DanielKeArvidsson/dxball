@@ -64,7 +64,9 @@ main{
   }
 
   .startGameText {
-      font-size:50px;
+      font-family:'spacetech';
+      font-size:60px;
+      color:#8b0000;
       animation: start-animation 1.5s ease-in-out infinite alternate;
   }
 
