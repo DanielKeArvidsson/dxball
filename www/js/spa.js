@@ -26,7 +26,7 @@ $(document).on('click', 'a', function(e){
       
     let routes = {
       '/': () => { $('body main > *').hide(); $('.home').show(); },
-      '/about': () => { $('body main > *').hide(); $('.about').show(); },
+      '/history': () => { $('body main > *').hide(); $('.history').show(); },
       '/gamePlay': () => { $('body main > *').hide(); $('.gamePlay').show(); },
       '/contact': () => { $('body main > *').hide(); $('.contact').show(); },
     };
