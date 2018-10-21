@@ -26,34 +26,27 @@ main{
      }
     }
  
-.difficulty {
-    position:absolute;
-    top:5px;
-    width: 100%;
-    text-align:center;
-}
 .en {
     display:none;
 }
  
-
-.short-text {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .short-text { display: inline-block; }
-    .full-text { display: none; }
-}
-
-.pauseButton {
-    position:absolute;
-    top:35px;
-    right:10px;
-}
-
 .game {
     background-image:url('/images/gamebg.png');
     color:#000;
 }
 
+.pausedGame {
+    display:none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25vh;
+  }
+
+  .gameStart {
+    display:none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25vh;
+  }

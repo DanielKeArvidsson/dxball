@@ -8,19 +8,30 @@ let $ballY = $('.ballY');
 let $paddle = $('.paddle');
 let paddleStep = 80;
 let currentKey;
+let gameMode = false;
+
 
 // Read keys
 $(window).keydown(function (e) {
   if (e.which === 37 && !paused) { currentKey = 'left'; }
   if (e.which === 39 && !paused) { currentKey = 'right'; }
-  if (e.which === 72) { playAgainHard(); }
-  if (e.which === 78) { playAgainNormal(); }
-  if (e.which === 80) { pauseGame(); }
+  if (e.which === 72 && gameMode) { playAgainHard(); }
+  if (e.which === 78 && gameMode) { playAgainNormal(); }
+  if (e.which === 80 && !gameMode) { pauseGame(); }
 });
 
 $(window).keyup(function () {
   currentKey = '';
 });
+
+$ballX.remove();
+paused = true;
+$ballX.addClass('ball-paused');
+$ballY.addClass('ball-paused');
+$('.gameStart').show();
+gameMode = true;
+
+
 
 // Game loop
 setInterval(function () {
@@ -39,7 +50,7 @@ setInterval(function () {
   // Check for hits and misses
   let x = $ballX.position().left;
   let y = $ballY.position().top;
-  if (y >= $('.game').height() - $ballY.height() - 20) {
+  if (y >= $('.game').height() - $ballY.height() - 30) {
     let paddleX1 = $paddle.position().left;
     let paddleX2 = paddleX1 + $paddle.outerWidth();
     if (paddleX1 - $ballY.width() <= x && paddleX2 + $ballY.width() >= x && !paused) {
@@ -64,6 +75,7 @@ setInterval(function () {
       else {
         $('.game-over').fadeIn(1000);
         $ballX.remove();
+        gameMode = true;        
       }
     }
   }
@@ -91,6 +103,8 @@ function playAgainHard() {
   $('.lives span').text(3);
   paused = false;
   $('.game-over').hide();
+  gameMode = false;
+  $('.gameStart').hide();
   restartBallAnimation();
 }
 
@@ -104,6 +118,8 @@ function playAgainNormal() {
   $('.lives span').text(3);
   paused = false;
   $('.game-over').hide();
+  gameMode = false;
+  $('.gameStart').hide();
   restartBallAnimation();
 }
 
@@ -111,10 +127,12 @@ function pauseGame() {
   if(!paused) {
     $ballX.addClass('ball-paused');
     $ballY.addClass('ball-paused');
+    $('.pausedGame').show();
     paused = true;
   }
   else{
     $('.ball-paused').removeClass('ball-paused');
+    $('.pausedGame').hide();
     paused = false;
   }
 }

@@ -35,6 +35,14 @@ html {
     text-align: center;
     top: 25vh;
   }
+
+  .gamePaused {
+    display:none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25vh;
+  }
   
   .paddle {
     width: 200px;
@@ -74,7 +82,7 @@ html {
   
   @keyframes ball-animation-vertical {
     0%   {top: 0; background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
-    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
+    100%  {top: calc(100% - 50px); background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
   }
 
 
