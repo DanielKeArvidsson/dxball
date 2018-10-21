@@ -1,9 +1,12 @@
-body, h2 {
+body, {
     font-family: 'Orbitron', sans-serif !important;
     color: #FFB71C;
-    
   
-}
+}  
+
+main {
+    background-color: #000;
+  }
 @font-face {
     font-family: 'spacetech';
     src:url('/fonts/Spacetech.ttf')
@@ -14,14 +17,19 @@ body, h2 {
 .about {
     font-family: 'Montserrat', sans-serif !important;
     margin-top: 3px;
-    color: #000;
+    color: #ffffff;
     padding: 10px;
-    
+    h2 {
+        text-align: center;
+        padding-bottom: 25px;
+        padding-top:30px;
+        color: #FF0000;
+    }
 }
 
 
 main{
-    &.home, &.gamePlay, &.about, &.contacts {
+    &.home, &.gamePlay, &.history, &.contacts {
        display: none;
      }
     }

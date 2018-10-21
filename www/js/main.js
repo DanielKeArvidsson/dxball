@@ -25,11 +25,13 @@ function lang(myLang)  {
         $(swe.hem).appendTo('.hem').addClass('sv');
         $(swe.history).appendTo('.navHistory').addClass('sv');
         $(swe.spelet).appendTo('.spelet').addClass('sv');
-        $(swe.kontakt).appendTo('.contact').addClass('sv');
+        $(swe.kontakt).appendTo('.contacts').addClass('sv');
 
 
         //body Swedish
         $(swe.theGame).appendTo('.about').addClass('sv');;
+        $(swe.kontakt).appendTo('.kortTitel').addClass('sv');;
+        $(swe.kontakttele).appendTo('.kortText').addClass('sv');;
 
         
         //footer swedish
@@ -54,10 +56,12 @@ function Englang(myLang){
       $(eng.home).appendTo('.hem').addClass('en');
       $(eng.history).appendTo('.navHistory').addClass('en');
       $(eng.spelet).appendTo('.spelet').addClass('en');
-      $(eng.kontakt).appendTo('.contact').addClass('en');
+      $(eng.kontakt).appendTo('.contacts').addClass('en');
 
       //body English
       $(eng.theGame).appendTo('.about').addClass('en');
+      $(eng.kontakt).appendTo('.kortTitel').addClass('en');;
+      $(eng.kontakttele).appendTo('.kortText').addClass('en');;
 
       
       //footer English
