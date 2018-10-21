@@ -11,8 +11,8 @@ let currentKey;
 
 // Read keys
 $(window).keydown(function (e) {
-  if (e.which === 37) { currentKey = 'left'; }
-  if (e.which === 39) { currentKey = 'right'; }
+  if (e.which === 37 && !paused) { currentKey = 'left'; }
+  if (e.which === 39 && !paused) { currentKey = 'right'; }
   if (e.which === 72) { playAgainHard(); }
   if (e.which === 78) { playAgainNormal(); }
   if (e.which === 80) { pauseGame(); }
@@ -82,6 +82,7 @@ function restartBallAnimation() {
 
 // Play again - reset variables and play again
 function playAgainHard() {
+  $(".ballY").css("animation", "ball-animation-vertical 4s linear infinite alternate");
   $(".paddle").css("width", "100px");
   $(".paddle").css("background-image", "url('/images/paddlesmall.png')");
   lives = 3;
@@ -94,6 +95,7 @@ function playAgainHard() {
 }
 
 function playAgainNormal() {
+  $(".ballY").css("animation", "ball-animation-vertical 5s linear infinite alternate");
   $(".paddle").css("width", "200px");
   $(".paddle").css("background-image", "url('/images/paddle.png')");
   lives = 3;

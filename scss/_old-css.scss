@@ -64,7 +64,7 @@ html {
   }
 
   .ball-paused {
-    animation-play-state: paused;
+    animation-play-state: paused !important;
   }
   
   @keyframes ball-animation-horizontal {
@@ -73,6 +73,10 @@ html {
   }
   
   @keyframes ball-animation-vertical {
-    0%   {top: 0; background-image:url('/images/ball.png');}
-    100%  {top: calc(100% - 40px); background-image:url('/images/ball.png');}
+    0%   {top: 0; background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
+    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
   }
+
+
+
+  
