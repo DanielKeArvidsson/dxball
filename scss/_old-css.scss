@@ -77,8 +77,8 @@ html {
   }
   
   @keyframes ball-animation-vertical {
-    0%   {top: 0; background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
-    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
+    0%   {top: 0; background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 174, 255) 3%, darkblue 60%, rgb(0, 174, 255) 100%);}
+    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 174, 255) 3%, darkblue 60%, rgb(0, 174, 255) 100%);}
   }
 
 

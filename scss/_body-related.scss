@@ -33,6 +33,8 @@ main{
 .game {
     background-image:url('/images/gamebg.png');
     color:#000;
+    border:15px ridge darkred;
+    border-bottom: 2px solid black;
 }
 
 .pausedGame {
@@ -73,4 +75,10 @@ main{
   .gameOverText {
       font-size:40px;
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  }
+
+  .gamePlay {
+      background-image:url('/images/gameContBg.jpg');
+      
+      background-size:cover;
   }
