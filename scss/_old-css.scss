@@ -20,6 +20,7 @@ html {
     position: absolute;
     top: 5px;;
     right: 10px;
+    
   }
   
   .lives {
@@ -30,18 +31,12 @@ html {
   
   .game-over {
     display:none;
+    font-size:22px;
     position: absolute;
     width: 100%;
     text-align: center;
     top: 25vh;
-  }
-
-  .gamePaused {
-    display:none;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 25vh;
+    
   }
   
   .paddle {
@@ -81,8 +76,8 @@ html {
   }
   
   @keyframes ball-animation-vertical {
-    0%   {top: 0; background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
-    100%  {top: calc(100% - 50px); background: radial-gradient(circle at 65% 15%, white 1px, rgb(0, 183, 255) 3%, rgb(0, 0, 139) 60%, rgb(0, 183, 255) 100%);}
+    0%   {top: 0; background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
+    100%  {top: calc(100% - 40px); background: radial-gradient(circle at 65% 15%, #fff 1px, rgb(233, 25, 25) 3%, rgb(119, 4, 4) 60%, rgb(233, 25, 25) 100%);}
   }
 
 

@@ -26,12 +26,8 @@ $(window).keyup(function () {
 
 $ballX.remove();
 paused = true;
-$ballX.addClass('ball-paused');
-$ballY.addClass('ball-paused');
 $('.gameStart').show();
 gameMode = true;
-
-
 
 // Game loop
 setInterval(function () {
@@ -50,7 +46,7 @@ setInterval(function () {
   // Check for hits and misses
   let x = $ballX.position().left;
   let y = $ballY.position().top;
-  if (y >= $('.game').height() - $ballY.height() - 30) {
+  if (y >= $('.game').height() - $ballY.height() - 20) {
     let paddleX1 = $paddle.position().left;
     let paddleX2 = paddleX1 + $paddle.outerWidth();
     if (paddleX1 - $ballY.width() <= x && paddleX2 + $ballY.width() >= x && !paused) {
@@ -63,8 +59,9 @@ setInterval(function () {
       paused = true;
       $ballX.addClass('ball-paused');
       $ballY.addClass('ball-paused');
+      $('.heart' + lives).hide();
       lives--;
-      $('.lives span').text(lives);
+      
       // if there are lives left continue after a second
       if (lives > 0) {
         setTimeout(function () {
@@ -79,7 +76,6 @@ setInterval(function () {
       }
     }
   }
-
 }, 100);
 
 // Restart ball animation from top left
@@ -99,12 +95,12 @@ function playAgainHard() {
   $(".paddle").css("background-image", "url('/images/paddlesmall.png')");
   lives = 3;
   score = 0;
-  $('.score span').text('00000');
-  $('.lives span').text(3);
+  $('.score span').text('00000');  
   paused = false;
   $('.game-over').hide();
   gameMode = false;
   $('.gameStart').hide();
+  $('.heart1,.heart2,.heart3').show();
   restartBallAnimation();
 }
 
@@ -114,12 +110,12 @@ function playAgainNormal() {
   $(".paddle").css("background-image", "url('/images/paddle.png')");
   lives = 3;
   score = 0;
-  $('.score span').text('00000');
-  $('.lives span').text(3);
+  $('.score span').text('00000');  
   paused = false;
   $('.game-over').hide();
   gameMode = false;
   $('.gameStart').hide();
+  $('.heart1,.heart2,.heart3').show();
   restartBallAnimation();
 }
 
