@@ -20,10 +20,14 @@ main {
     color: #ffffff;
     padding: 10px;
     h2 {
+        font-family:'spacetech';
+        font-size:45px;
+        color:#8b0000;
+        animation: start-animation 1.5s ease-in-out infinite alternate;
         text-align: center;
-        padding-bottom: 25px;
-        padding-top:30px;
-        color: #FF0000;
+        padding-bottom: 30px;
+        padding-top: 30px;
+        
     }
 }
 
