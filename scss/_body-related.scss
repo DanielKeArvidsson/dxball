@@ -1,11 +1,10 @@
 body, {
     font-family: 'Orbitron', sans-serif !important;
-    color: #FFB71C;
   
 }  
 
 main {
-    background-color: #000;
+    background-color: $black;
   }
 @font-face {
     font-family: 'spacetech';
@@ -15,14 +14,13 @@ main {
     font-family: 'spacetech' !important;
 }
 .about {
-    font-family: 'Montserrat', sans-serif !important;
     margin-top: 3px;
-    color: #ffffff;
+    color: $white;
     padding: 10px;
     h2 {
         font-family:'spacetech';
         font-size:45px;
-        color:#8b0000;
+        color: $heading-color;
         animation: start-animation 1.5s ease-in-out infinite alternate;
         text-align: center;
         padding-bottom: 30px;
@@ -44,7 +42,7 @@ main{
  
 .game {
     background-image:url('/images/gamebg.png');
-    color:#000;
+    color:$black;
     border:15px ridge darkred;
     border-bottom: 2px solid black;
 }
