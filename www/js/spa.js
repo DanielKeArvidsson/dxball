@@ -25,7 +25,7 @@ $(document).on('click', 'a', function(e){
   function frontendRouter(path){
       
     let routes = {
-      '/': () => { $('body main > *').hide();$('#footer-hide').show(); $('.home').show(); },
+      '/': () => { $('body main > *').hide();$('#footer-hide').show(); $('.home').fadeIn(800); },
       '/history': () => { $('body main > *').hide();$('#footer-hide').show(); $('.history').show(); },
       '/gamePlay': () => { $('body main > *').hide();$('#footer-hide').hide(); $('.gamePlay').show();},
       '/contact-us': () => { $('body main > *').hide(); $('#footer-hide').show(); $('.contact-us').show(); },

@@ -33,12 +33,15 @@ main{
     &.home, &.gamePlay, &.history, &.contacts {
        display: none;
      }
+     
     }
  
 .en {
     display:none;
 }
  
+
+
 
 picture > a > img{
     max-width: 100%;

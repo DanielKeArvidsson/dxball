@@ -29,6 +29,7 @@ function lang(myLang)  {
 
 
         //body Swedish
+        $(swe.startInfo).appendTo('.startText').addClass('sv');
         $(swe.theGame).appendTo('.about').addClass('sv');;
         $(swe.kontakt).appendTo('.kortTitel').addClass('sv');;
         $(swe.kontakttele).appendTo('.kortText').addClass('sv');;
@@ -59,6 +60,7 @@ function Englang(myLang){
       $(eng.kontakt).appendTo('.contact-us').addClass('en');
 
       //body English
+      $(eng.startInfo).appendTo('.startText').addClass('en');
       $(eng.theGame).appendTo('.about').addClass('en');
       $(eng.kontakt).appendTo('.kortTitel').addClass('en');;
       $(eng.kontakttele).appendTo('.kortText').addClass('en');;

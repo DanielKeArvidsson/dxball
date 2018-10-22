@@ -11,6 +11,13 @@
       }
     ]
   },
+  "startText": {
+    "en": [
+      {
+        "startInfo": "<h2>Welcome to Breakout by Group 1</h2><p>Click on the pictures below to try some other versions of the game.</p>"
+      }
+    ]
+  },
   "textHistoryEn": {
     "en": [
       {
