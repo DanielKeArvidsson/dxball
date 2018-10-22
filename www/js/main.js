@@ -2,6 +2,8 @@
 $.getJSON('/json/mainSv.json', lang);
 $.getJSON('/json/mainEn.json', Englang);
 
+
+
 $('.engelska').on('click',function(){
 $('.sv').hide();
 $('.en').show();
@@ -30,18 +32,18 @@ function lang(myLang)  {
 
         //body Swedish
         $(swe.startInfo).appendTo('.startText').addClass('sv');
-        $(swe.theGame).appendTo('.about').addClass('sv');;
-        $(swe.kontakt).appendTo('.kortTitel').addClass('sv');;
-        $(swe.kontakttele).appendTo('.kortText').addClass('sv');;
+        $(swe.theGame).appendTo('.about').addClass('sv');
+        $(swe.kontakt).appendTo('.kortTitel').addClass('sv');
+        $(swe.kontakttele).appendTo('.kortText').addClass('sv');
 
         
         //footer swedish
-        $(swe.adressH5).appendTo('.adressH5').addClass('sv');;
-        $(swe.adressP).appendTo('.adressP').addClass('sv');;
-        $(swe.phoneH5).appendTo('.phoneH5').addClass('sv');;
-        $(swe.phoneP).appendTo('.phoneP').addClass('sv');;
-        $(swe.emailH5).appendTo('.emailH5').addClass('sv');;
-        $(swe.emailP).appendTo('.emailP').addClass('sv');;
+        $(swe.adressH5).appendTo('.adressH5').addClass('sv');
+        $(swe.adressP).appendTo('.adressP').addClass('sv');
+        $(swe.phoneH5).appendTo('.phoneH5').addClass('sv');
+        $(swe.phoneP).appendTo('.phoneP').addClass('sv');
+        $(swe.emailH5).appendTo('.emailH5').addClass('sv');
+        $(swe.emailP).appendTo('.emailP').addClass('sv');
       }
     }
   }
@@ -62,8 +64,8 @@ function Englang(myLang){
       //body English
       $(eng.startInfo).appendTo('.startText').addClass('en');
       $(eng.theGame).appendTo('.about').addClass('en');
-      $(eng.kontakt).appendTo('.kortTitel').addClass('en');;
-      $(eng.kontakttele).appendTo('.kortText').addClass('en');;
+      $(eng.kontakt).appendTo('.kortTitel').addClass('en');
+      $(eng.kontakttele).appendTo('.kortText').addClass('en');
 
       
       //footer English

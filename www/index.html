@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark border-nav">
       <a class="navbar-brand text-light" href="/">breakout</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +23,16 @@
       <div class="collapse navbar-collapse" id=navbarSupportedContent>
         <ul class="navbar-nav mr-auto mt-3">
           <li class="nav-item active">
-            <a class="nav-link hem text-white" href="/"> <span class="sr-only">(current)</span></a>
+            <a class="nav-link hem text-light" href="/"> <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link navHistory text-white" href="/history"></a>
+            <a class="nav-link navHistory text-light" href="/history"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link spelet text-white" href="/gamePlay"></a>
+            <a class="nav-link spelet text-light" href="/gamePlay"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link contact-us text-white" href="/contact-us"></a>
+            <a class="nav-link contact-us text-light" href="/contact-us"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><img class="svenska mr-2 rounded" width="35" src="images/sv-flag.svg">
@@ -46,7 +46,7 @@
   <main>
     <section class="home container">
       <div class="row mt-4">
-      <div class="col-md-8 startText mx-auto text-center text-white"></div>
+        <div class="col-md-8 startText mx-auto text-center text-white"></div>
       </div>
       <div class="row align-items-center">
         <picture class="col-md-4 mt-2">
@@ -55,40 +55,47 @@
         </picture>
         <picture class="col-md-4 mt-2">
           <a href="https://dx-ball.ru/" target="_blank">
-            <img class="img-thumbnail" src="images/img2.jpg" ></a>
-          </picture>
-          <picture class="col-md-4 mt-2">
-            <a href="https://www.classicgame.com/game/BrickOut" target="_blank">
+            <img class="img-thumbnail" src="images/img2.jpg"></a>
+        </picture>
+        <picture class="col-md-4 mt-2">
+          <a href="https://www.classicgame.com/game/BrickOut" target="_blank">
             <img class="img-thumbnail" src="images/img3.jpg" /></a>
         </picture>
       </div>
     </section>
 
-    
-    <section class="h-100 gamePlay">
-      <div class="container h-100">
-        <div class="row h-100">
-      
-      <div class="col-10 game p-0 mx-auto">
-        <div class="score">SCORE: <span>00000</span></div>
-        <div class="lives"><img class="heart1" src="/images/heart.png" height="30" width="30"> <img class="heart2" src="/images/heart.png" height="30" width="30"> <img class="heart3" src="/images/heart.png" height="30" width="30"></div>
-        <div class="ballX">
-          <div class="ballY"></div>
-        </div>
-        <div class="paddle"></div>
-        <div class="game-over"><div class="gameOverText">GAME OVER</div><br>RESTART - Press "N" for normal mode or "H" for hard mode</div>
-        <div class="pausedGame">GAME PAUSED - Press "P" to continue</div>
-        <div class="gameStart"><div class="startGameText">breakout</div><br>START GAME - Press "N" for normal mode or "H" for hard mode<br><br>"P" pauses game</div>
 
-      </div>
-    
+    <section class="h-100 gamePlay py-2">
+      <div class="container h-100 dxGame">
+        <div class="row h-100">
+
+          <div class="col-10 game p-0 mx-auto">
+            <div class="score">SCORE: <span>00000</span></div>
+            <div class="lives"><img class="heart1" src="/images/heart.png" height="30" width="30"> <img class="heart2"
+                src="/images/heart.png" height="30" width="30"> <img class="heart3" src="/images/heart.png" height="30"
+                width="30"></div>
+            <div class="ballX">
+              <div class="ballY"></div>
+            </div>
+            <div class="paddle"></div>
+            <div class="game-over">
+              <div class="gameOverText">GAME OVER</div><br>RESTART - Press "N" for normal mode or "H" for hard mode
+            </div>
+            <div class="pausedGame">GAME PAUSED - Press "P" to continue</div>
+            <div class="gameStart">
+              <div class="startGameText">breakout</div><br>START GAME - Press "N" for normal mode or "H" for hard mode<br><br>"P"
+              pauses game
+            </div>
+
+          </div>
+
         </div>
     </section>
 
 
-   
-    
-    <section class="h-100 history">
+
+
+    <section class="h-100 history p-4">
       <div class="container-fluid ">
         <div class="row h-100">
           <div class="col-md-3 mt-5">
@@ -107,39 +114,39 @@
         </div>
       </div>
     </section>
-  <section class="contact-us">
-    <div class="container p-5">
-      <div class="row mt-4">
-      <div class="col-6">
-        <img class="img-thumbnail" src="images/atariphone.jpg">
-      </div>
-        <div class="col-6">
-    <div class="col-sm-12 form-group" form action="/action_page.php">
-      <div class=" col-sm-12 form-group">
-          <input class="form-control" type="text" id="name" name="name" placeholder="Your name.." required>
-        </div>
-      <div class= "col-sm-12 form-group">
-          <input class="form-control" type="text" id="email" name="email" placeholder="Your email.." required>
-        </div>
-      <div class="col-sm-12 form-group">
-          <textarea class="form-control" id="comments" name="comments" placeholder="Write something.." style="height:170px"></textarea><br>
-          <div class="row">
-          <div class="col-sm-12 form-group"> 
-          <button class="btn btn-lg btn-primary pull-right" type="submit" value="Submit">Submit</button>
-        </div>
-      </div>
-      </div>
-  </div>
- </div>
-</div>
-    </div>
+    <section class="contact-us">
+      <div class="container p-5">
+        <div class="row mt-4">
+          <div class="col-6">
+            <img class="img-thumbnail" src="images/atariphone.jpg">
+          </div>
+          <div class="col-6">
+            <div class="col-sm-12 form-group" form action="/action_page.php">
+              <div class=" col-sm-12 form-group">
+                <input class="form-control" type="text" id="name" name="name" placeholder="Your name.." required>
+              </div>
+              <div class="col-sm-12 form-group">
+                <input class="form-control" type="text" id="email" name="email" placeholder="Your email.." required>
+              </div>
+              <div class="col-sm-12 form-group">
+                <textarea class="form-control" id="comments" name="comments" placeholder="Write something.." style="height:170px"></textarea><br>
+                <div class="row">
+                  <div class="col-sm-12 form-group">
+                    <button class="btn btn-lg btn-primary pull-right" type="submit" value="Submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      </div>
+      </div>
       </div>
     </section>
   </main>
 
-  <footer class="container-fluid bg-dark text-light kontakta-oss"id="footer-hide">
+  <footer class="container-fluid bg-dark text-light kontakta-oss footerStyle" id="footer-hide">
     <address>
       <div class="row mx-auto">
         <div class="col-md-4 text-md-center">

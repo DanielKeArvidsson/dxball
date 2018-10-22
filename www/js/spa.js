@@ -26,9 +26,9 @@ $(document).on('click', 'a', function(e){
       
     let routes = {
       '/': () => { $('body main > *').hide();$('#footer-hide').show(); $('.home').fadeIn(800); },
-      '/history': () => { $('body main > *').hide();$('#footer-hide').show(); $('.history').show(); },
-      '/gamePlay': () => { $('body main > *').hide();$('#footer-hide').hide(); $('.gamePlay').show();},
-      '/contact-us': () => { $('body main > *').hide(); $('#footer-hide').show(); $('.contact-us').show(); },
+      '/history': () => { $('body main > *').hide();$('#footer-hide').show(); $('.history').fadeIn(600); },
+      '/gamePlay': () => { $('body main > *').hide();$('#footer-hide').hide(); $('.gamePlay').fadeIn(600);},
+      '/contact-us': () => { $('body main > *').hide(); $('#footer-hide').show(); $('.contact-us').fadeIn(600); },
     };
     // no path found then change path to '/404';
     path = routes[path] ? path : '/404';
