@@ -25,10 +25,10 @@ $(document).on('click', 'a', function(e){
   function frontendRouter(path){
       
     let routes = {
-      '/': () => { $('body main > *').hide(); $('.home').show(); },
-      '/history': () => { $('body main > *').hide(); $('.history').show(); },
-      '/gamePlay': () => { $('body main > *').hide(); $('.gamePlay').show(); },
-      '/contact-us': () => { $('body main > *').hide(); $('.contact-us').show(); },
+      '/': () => { $('body main > *').hide();$('#footer-hide').show(); $('.home').show(); },
+      '/history': () => { $('body main > *').hide();$('#footer-hide').show(); $('.history').show(); },
+      '/gamePlay': () => { $('body main > *').hide();$('#footer-hide').hide(); $('.gamePlay').show();},
+      '/contact-us': () => { $('body main > *').hide(); $('#footer-hide').show(); $('.contact-us').show(); },
     };
     // no path found then change path to '/404';
     path = routes[path] ? path : '/404';
