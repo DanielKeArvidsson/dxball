@@ -6,22 +6,15 @@
     border-bottom: 2px solid black;
 }
 
-picture > a > img{
-    max-width: 100%;
-    min-height: 200px;
-}
-
 .pausedGame {
     display:none;
     position: absolute;
-    font-size:20px;
     width: 100%;
     text-align: center;
     top: 25vh;
   }
 
   .gameStart {
-    font-size:22px;
     display:none;
     position: absolute;
     width: 100%;
@@ -41,18 +34,63 @@ picture > a > img{
 
   .startGameText {
       font-family:'spacetech';
-      font-size:60px;
       color: $heading-color;
       animation: start-animation 1.5s ease-in-out infinite alternate;
   }
 
   .gameOverText {
-      font-size:40px;
       text-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px $secondary-color, 0 0 70px $secondary-color, 0 0 80px $secondary-color, 0 0 100px $secondary-color, 0 0 150px $secondary-color;
   }
 
   .gamePlay {
-      background-image:url('/images/gameContBg.jpg');
-      
+      background-image:url('/images/gameContBg.jpg');    
       background-size:cover;
+  }
+
+  @media (min-width: 1281px) {
+    .gameStart {
+        font-size:22px;
+    }
+    .startGameText {
+        font-size:60px;
+    }
+    .gameOverText {
+        font-size:40px;
+    }
+    .pausedGame {
+        font-size:20px;
+    }
+    .game-over {
+        font-size:22px;
+    }   
+    
+  }
+  
+ 
+  @media (min-width: 768) and (max-width: 1280px) {
+    
+    .gameStart {
+        font-size:18px;
+    }
+    .startGameText {
+        font-size:45px;
+    }
+    .gameOverText {
+        font-size:30px;
+    }
+    
+    .game-over {
+        font-size:18px;
+    }   
+    
+  }
+  
+
+  @media (max-width: 767px) {
+      .startGameText {
+          font-size: 35px;
+      }
+      .gameOverText {
+        font-size:24px;
+      }
   }
