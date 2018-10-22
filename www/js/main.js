@@ -25,7 +25,7 @@ function lang(myLang)  {
         $(swe.hem).appendTo('.hem').addClass('sv');
         $(swe.history).appendTo('.navHistory').addClass('sv');
         $(swe.spelet).appendTo('.spelet').addClass('sv');
-        $(swe.kontakt).appendTo('.contacts').addClass('sv');
+        $(swe.kontakt).appendTo('.contact-us').addClass('sv');
 
 
         //body Swedish
@@ -56,7 +56,7 @@ function Englang(myLang){
       $(eng.home).appendTo('.hem').addClass('en');
       $(eng.history).appendTo('.navHistory').addClass('en');
       $(eng.spelet).appendTo('.spelet').addClass('en');
-      $(eng.kontakt).appendTo('.contacts').addClass('en');
+      $(eng.kontakt).appendTo('.contact-us').addClass('en');
 
       //body English
       $(eng.theGame).appendTo('.about').addClass('en');
