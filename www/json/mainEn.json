@@ -33,7 +33,7 @@
       },
       {
       "phoneH5": "<h5>Telephone<\/h5>",
-      "phoneP": "<p class=\"mb-0\">Phone: 040-123 45 67 <br \/> Cell phone: 073-234 56 78<\/p>"  
+      "phoneP": "<p class=\"mb-0\">Phone: <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Cell phone: <a href=\"tel:073-234 56 78\">073-234 56 78<\/a> <\/p>"  
       },
       {
       "emailH5": "<h5 class=\"mt-3 mt-md-0\"> Email<\/h5>",
@@ -44,7 +44,7 @@
   "textContacts": {
     "en": [
         {
-        "kontakttele": "<p>Phone 0401234567 <br \/> Cell phone 0732345678 <br\/> e-mail info@grupp1.com <br\/> or drop in at our place at nordenskiöldsgatan 13 i Malmö<\/p>",
+        "kontakttele": "<p>Phone <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Cell phone <a href=\"tel:073-234 56 78\">073-234 56 78<\/a> <br\/> e-mail info@grupp1.com <br\/> or drop in at our place at nordenskiöldsgatan 13 i Malmö<\/p>",
          "kontakt": "Contact us"
         }
      ]
