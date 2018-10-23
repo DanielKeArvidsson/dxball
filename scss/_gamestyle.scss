@@ -3,7 +3,8 @@
     background-image:url('/images/gamebg.png');
     color:$black;
     border:15px ridge darkred;
-    
+    border-bottom: 5px solid gray;
+    box-shadow: 0 2px 0px 0px black;
 }
 
 .pausedGame {
