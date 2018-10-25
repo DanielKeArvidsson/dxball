@@ -7,11 +7,19 @@ $.getJSON('/json/mainEn.json', Englang);
 $('.engelska').on('click',function(){
 $('.sv').hide();
 $('.en').show();
+$("#name").attr("placeholder", "Your name");
+$("#email").attr("placeholder", "Your E-mail");
+$("#comments").attr("placeholder", "Write something fun");
+$(".knapp").html("Submit");
 });
 
 $('.svenska').on('click',function(){
     $('.en').hide();
     $('.sv').show();
+    $("#name").attr("placeholder", "Ditt namn");
+    $("#email").attr("placeholder", "Din E-mail");
+    $("#comments").attr("placeholder", "Skriv något kul");
+    $(".knapp").html("Skicka");
     });
     
 
@@ -28,13 +36,14 @@ function lang(myLang)  {
         $(swe.history).appendTo('.navHistory').addClass('sv');
         $(swe.spelet).appendTo('.spelet').addClass('sv');
         $(swe.kontakt).appendTo('.contact-us').addClass('sv');
-
+       
 
         //body Swedish
         $(swe.startInfo).appendTo('.startText').addClass('sv');
         $(swe.theGame).appendTo('.about').addClass('sv');
         $(swe.kontakt).appendTo('.kortTitel').addClass('sv');
         $(swe.kontakttele).appendTo('.kortText').addClass('sv');
+        
 
         
         //footer swedish
@@ -60,6 +69,7 @@ function Englang(myLang){
       $(eng.history).appendTo('.navHistory').addClass('en');
       $(eng.spelet).appendTo('.spelet').addClass('en');
       $(eng.kontakt).appendTo('.contact-us').addClass('en');
+  
 
       //body English
       $(eng.startInfo).appendTo('.startText').addClass('en');
