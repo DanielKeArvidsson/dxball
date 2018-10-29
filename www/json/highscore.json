@@ -1,8 +1,6 @@
-{
-    "myHighScore": [
-        {
-        "name":
-
-    }]
-    
-}
+[
+    {
+        "name": "player1",
+        "score": 10
+    }
+]
