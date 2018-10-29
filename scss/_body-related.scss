@@ -14,6 +14,10 @@ body, {
         height:26px;
         float:right;
         outline: none;
+        transition: transform 0.2s;
+        &:hover{
+            transform: scale(0.8);
+        }
        
 }
 
@@ -25,6 +29,10 @@ body, {
     height:26px;
     float: right;
     outline: none;
+    transition: transform 0.2s;
+    &:hover{
+        transform: scale(0.8);
+    }
 }
 
 
@@ -50,6 +58,8 @@ main {
     margin-top: 3px;
     color: $white;
     padding: 10px;
+    line-height: 1.5;
+
     h2 {
         font-family:'spacetech';
         font-size:30px;
@@ -75,10 +85,13 @@ main{
  
 
 
-
 picture > a > img{
     max-width: 100%;
     min-height: 200px;
+    transition: transform 0.2s;
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 
@@ -92,7 +105,6 @@ picture > a > img{
 
 a:link, a:visited, a:hover, a:active { color: white }
 
-button:link, button:visited, button:hover, button:active, button:focus {  outline:none; opacity: 0.8 }
 
 .navbar-toggler {
     background-color: whitesmoke;
