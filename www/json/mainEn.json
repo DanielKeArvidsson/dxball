@@ -14,7 +14,7 @@
   "startText": {
     "en": [
       {
-        "startInfo": "<h2>Welcome to Breakout by Group 1</h2><p>Click on the pictures below to try some other versions of the game.</p>"
+        "startInfo": "<h3>Welcome to <span class=\"breaktext\"> breakout <\/span>   by Group 1<\/h2><p>Click on the pictures below to try some other versions of the game.</p>"
       }
     ]
   },
@@ -29,7 +29,7 @@
     "en": [
       {
       "adressH5": "<h5>Address <\/h5>", 
-      "adressP": "<p class=\"mb-0\" > Group1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
+      "adressP": "<p class=\"mb-0\" >Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
       },
       {
       "phoneH5": "<h5>Telephone<\/h5>",
