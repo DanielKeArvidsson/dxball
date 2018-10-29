@@ -16,7 +16,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark border-nav">
-      <a class="navbar-brand text-light" href="/">breakout</a>
+      <a class="navbar-brand breaktext" href="/">breakout</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,32 +33,33 @@
             <a class="nav-link spelet text-light" href="/gamePlay"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link contact-us text-light" href="/contact-us"></a>
+            <a class="nav-link highscore text-light" href="/highscore"></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img class="svenska mr-2 rounded" width="35" src="images/sv-flag.svg">
-              <img class="engelska rounded" width="35" src="images/us-flag.svg"></a>
-          </li>
+          
         </ul>
+        
+        <button class="myButton1 svenska mr-2 rounded clearfix"></button>
+        <button class="myButton2 engelska rounded clearfix"></button>
+        
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="home container">
+    <section class="home container p-4">
       <div class="row mt-4">
         <div class="col-md-8 startText mx-auto text-center text-white"></div>
       </div>
       <div class="row align-items-center">
-        <picture class="col-lg-4 mt-2">
+        <picture class="col-lg-4 mt-2 pt-5">
           <a href="https://www.kongregate.com/games/blackportalgames/dx-ball-shooter" target="_blank" rel="external nofollow">
             <img class="rounded img-thumbnail" src="images/img1.jpg"></a>
         </picture>
-        <picture class="col-lg-4 mt-2">
+        <picture class="col-lg-4 mt-2 pt-5">
           <a href="https://dx-ball.ru/" target="_blank" rel="external nofollow">
             <img class="img-thumbnail" src="images/img2.jpg"></a>
         </picture>
-        <picture class="col-lg-4 mt-2">
+        <picture class="col-lg-4 mt-2 pt-5">
           <a href="https://www.classicgame.com/game/BrickOut" target="_blank" rel="external nofollow">
             <img class="img-thumbnail" src="images/img3.jpg" /></a>
         </picture>
@@ -97,14 +98,14 @@
 
 
     <section class="h-100 history p-4">
-      <div class="container-fluid ">
+      <div class="container-fluid">
         <div class="row h-100">
-          <div class="col-md-3 mt-5">
-            <img class="img-thumbnail" src="/images/history1.png">
-          </div>
           <div class="col-md-6 about">
           </div>
-          <div class="col-md-3 mt-5">
+          <div class="col-md-3 mt-5 pt-5">
+            <img class="img-thumbnail" src="/images/history1.png">
+          </div>
+          <div class="col-md-3 mt-5 pt-5">
             <img class="img-thumbnail" src="/images/history2.jpg">
           </div>
         </div>
@@ -115,39 +116,41 @@
         </div>
       </div>
     </section>
-    <section class="kontakter">
+
+
+    <section class="highScoreBox">
       <div class="container p-5">
-        <div class="row mt-4">
-          <div class="col-6">
-            <img class="img-thumbnail" src="images/atariphone.jpg">
-          </div>
-          <div class="col-6">
-            <div class="col-sm-12 form-group" form action="/action_page.php">
-              <div class=" col-sm-12 form-group">
-                <input class="form-control" type="text" id="name" name="name" placeholder="Your name.." required>
-              </div>
-              <div class="col-sm-12 form-group">
-                <input class="form-control" type="text" id="email" name="email" placeholder="Your email.." required>
-              </div>
-              <div class="col-sm-12 form-group">
-                <textarea class="form-control" id="comments" name="comments" placeholder="Write something.." style="height:170px"></textarea><br>
-                <div class="row">
-                  <div class="col-sm-12 form-group">
-                    <button class="btn btn-lg btn-primary pull-right" type="submit" value="Submit">Submit</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      </div>
+          <table class="table table-dark myHighScore">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
       </div>
     </section>
   </main>
 
-  <footer class="container-fluid bg-dark text-light pt-3 kontakta-oss footerStyle" id="footer-hide">
+  <footer class="container-fluid bg-dark text-light p-3 kontakta-oss footerStyle" id="footer-hide">
     <address>
       <div class="row mx-auto">
         <div class="col-md-4 text-md-center">
