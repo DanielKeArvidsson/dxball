@@ -186,6 +186,7 @@ function loadGame() {
     $('.main-text').hide();
     if (lives < 1) {
       $('.heart3').hide();
+      highscoreName();
       $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
@@ -209,6 +210,15 @@ function loadGame() {
     }
 
     updateInterface();
+  }
+
+
+  function highscoreName(){
+    if (lives===0){
+      prompt("Your score is:" + score, "Enter your name")
+      $('.row').append("<td>"+score+"</td>");
+    }
+  
   }
 
   function setupKeyListeners() {
@@ -418,3 +428,34 @@ function loadGame() {
     }, 1000);
   }
 }
+
+
+
+
+//highscore
+
+function highscoreName(){
+  let player = prompt("Your score is:"+score+ "Enter your name");
+  if (lives===0){
+    if (player == undefined || player==""){
+      txt = "noname"
+    }
+else{
+  postNewHighscore();
+}
+
+    
+  }
+
+}
+ 
+ 
+function postNewHighscore() {
+  let name =  player;// fetch the name from your <input>/or otherwhere
+  let score = $(data.score) // fetch the score from the game's "score"-variable
+  $.post( "/add-score", { name, score }, function(responseData) {
+    console.log('the new highscore-list is:', responseData);
+    console.error('append/use the new highscore-list then remove this console.error');
+  });
+}
+
