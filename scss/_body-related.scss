@@ -5,6 +5,33 @@ body, {
   
 }  
 
+.myButton1 {
+   
+        background:url(/images/sv-flag.svg);
+        cursor:pointer;
+        border:none;
+        width:34px;
+        height:26px;
+        float:right;
+       
+}
+
+.myButton2 {
+    background:url(/images/us-flag.svg);
+    cursor:pointer;
+    border:none;
+    width:34px;
+    height:26px;
+    float: right;
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 main {
     background-color: $black;
   }
