@@ -13,6 +13,7 @@ body, {
         width:34px;
         height:26px;
         float:right;
+        outline: none;
        
 }
 
@@ -23,7 +24,9 @@ body, {
     width:34px;
     height:26px;
     float: right;
+    outline: none;
 }
+
 
 
 .clearfix::after {
@@ -31,6 +34,7 @@ body, {
     clear: both;
     display: table;
 }
+
 
 main {
     background-color: $black;
@@ -88,6 +92,7 @@ picture > a > img{
 
 a:link, a:visited, a:hover, a:active { color: white }
 
+button:link, button:visited, button:hover, button:active, button:focus {  outline:none; opacity: 0.8 }
 
 .navbar-toggler {
     background-color: whitesmoke;
