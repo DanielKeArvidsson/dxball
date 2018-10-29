@@ -5,7 +5,6 @@
             "hem": "<p>Hem<\/p>",
             "history": "<p>Historia om Breakout<\/p>",
             "spelet": "<p>Vårt spel<\/p>",
-            "kontakt": "<p>Kontakta oss<\/p>",
             "flagSv": "<a>Svenska<\/a>",
             "flagEn": "<a>English<\/a>"
 
@@ -15,7 +14,7 @@
 "startText": {
     "sv": [
       {
-        "startInfo": "<h2>Välkomna till Breakout av Grupp 1</h2><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
+        "startInfo": "<h2>Välkomna till <span class=\"breaktext\"> breakout <\/span> av Grupp 1</h2><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
       }
     ]
   },
@@ -29,27 +28,14 @@
 "footerSv":{
     "sv": [
         {
-        "adressH5": "<h5>Adress <\/h5>", 
-        "adressP": "<p class=\"mb-0\" > Grupp1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
+        "adressP": "<p class=\"mb-0\" >Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
         },
         {
-        "phoneH5": "<h5>Telefon<\/h5>",
         "phoneP": "<p class=\"mb-0\">Tel växel: <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Mobil: <a href=\"tel:073-234 56 78\">073-234 56 78<\/a><\/p>"
         },
         {
-        "emailH5": "<h5 class=\"mt-3 mt-md-0\"> E-post<\/h5>",
         "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
         }
     ]
-    },
-"textContacts": {
-    "sv": [
-        {
-        "kontakttele": "<p>Telefon växel  <br \/> mobil 0732345678 <br\/> epost info@grupp1.com <br\/> eller kom och besök oss på nordenskiöldsgatan 13 i Malmö<\/p>",
-        "kontakt": "Kontakta oss"
-        }
-     ]
- }
+    }
 }
-
-

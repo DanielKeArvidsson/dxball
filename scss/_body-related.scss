@@ -93,5 +93,9 @@ a:link, a:visited, a:hover, a:active { color: white }
     background-color: whitesmoke;
 
 }
-  
-  
+  .breaktext {
+    font-family:'spacetech';
+    font-size:30px;
+    color: $heading-color;
+    animation: start-animation 1.5s ease-in-out infinite alternate;
+  }
