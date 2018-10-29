@@ -15,7 +15,7 @@
 "startText": {
     "sv": [
       {
-        "startInfo": "<h2>Välkomna till Breakout av Grupp 1</h2><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
+        "startInfo": "<h2>Välkomna till <span class=\"breaktext\"> breakout <\/span> av Grupp 1</h2><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
       }
     ]
   },
