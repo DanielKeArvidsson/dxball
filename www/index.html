@@ -31,12 +31,12 @@
           <li class="nav-item">
             <a class="nav-link spelet text-light" href="/gamePlay"></a>
           </li>
-         <!--<li class="nav-item">
-           <a class="nav-link contact-us text-light" href="/contact-us"></a>
-          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="#"><img class="svenska mr-2 rounded" width="35" src="images/sv-flag.svg" alt="Svensk flagga för svenskt språk">
-              <img class="engelska rounded" width="35" src="images/us-flag.svg" alt="Us-flag for english language" ></a>
+            <a class="nav-link contact-us text-light" href="/contact-us"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img class="svenska mr-2 rounded" width="35" src="images/sv-flag.svg">
+              <img class="engelska rounded" width="35" src="images/us-flag.svg"></a>
           </li>
         </ul>
       </div>
@@ -49,46 +49,39 @@
         <div class="col-md-8 startText mx-auto text-center text-white"></div>
       </div>
       <div class="row align-items-center">
-        <picture class="col-md-4 mt-2">
+        <picture class="col-lg-4 mt-2">
           <a href="https://www.kongregate.com/games/blackportalgames/dx-ball-shooter" target="_blank">
-            <img class="rounded img-thumbnail" src="images/img1.jpg" alt="Dx-ball game picture"></a>
+            <img class="rounded img-thumbnail" src="images/img1.jpg"></a>
         </picture>
-        <picture class="col-md-4 mt-2">
+        <picture class="col-lg-4 mt-2">
           <a href="https://dx-ball.ru/" target="_blank">
-            <img class="img-thumbnail" src="images/img2.jpg" alt="Dx-ball game picture"></a>
+            <img class="img-thumbnail" src="images/img2.jpg"></a>
         </picture>
-        <picture class="col-md-4 mt-2">
+        <picture class="col-lg-4 mt-2">
           <a href="https://www.classicgame.com/game/BrickOut" target="_blank">
-            <img class="img-thumbnail" src="images/img3.jpg"alt="Dx-ball game picture" /></a>
+            <img class="img-thumbnail" src="images/img3.jpg" /></a>
         </picture>
       </div>
     </section>
 
 
-    <section class="h-100 gamePlay">
-      <div class="container h-100">
-        <div class="row h-100">
-
-          <div class="col-12 game p-0 my-3">
-            <div class="score">SCORE: <span>00000</span></div>
-            <div class="lives"><img class="heart1" src="/images/heart.png" height="30" width="30"> <img class="heart2"
-                src="/images/heart.png" height="30" width="30"> <img class="heart3" src="/images/heart.png" height="30"
-                width="30"></div>
-            <div class="ballX">
-              <div class="ballY"></div>
+    <section class="gamePlay">
+    <div class="container">
+      <div class="row">
+        
+          <div class="col-12 mt-3 mb-3 game">
+            
+              <div class="score">SCORE: <span>00000</span></div>
+              <div class="lives"><img class="heart1" src="/images/heart.png" height="30" width="30"> <img class="heart2" src="/images/heart.png" height="30" width="30">
+              <img class="heart3" src="/images/heart.png" height="30" width="30"></div>
+              <div class="gameStart"><div class="startGameText">breakout</div><br>Press Space to start game</div>
+              <div class="ball"></div>
+              <div class="paddle"></div>
+              <div class="main-text"></div>
             </div>
-            <div class="paddle"></div>
-            <div class="game-over">
-              <div class="gameOverText">GAME OVER</div><br>RESTART - Press "N" for normal mode or "H" for hard mode
-            </div>
-            <div class="pausedGame">GAME PAUSED - Press "P" to continue</div>
-            <div class="gameStart">
-              <div class="startGameText">breakout</div><br>START GAME - Press "N" for normal mode or "H" for hard mode<br><br>"P"
-              pauses game
-            </div>
-
-          </div>
-
+          </div>    
+          
+          
         </div>
     </section>
 
@@ -99,17 +92,17 @@
       <div class="container-fluid ">
         <div class="row h-100">
           <div class="col-md-3 mt-5">
-            <img class="img-thumbnail" src="/images/history1.png" alt="Dx-ball game picture">
+            <img class="img-thumbnail" src="/images/history1.png">
           </div>
           <div class="col-md-6 about">
           </div>
           <div class="col-md-3 mt-5">
-            <img class="img-thumbnail" src="/images/history2.jpg" alt="Dx-ball game picture">
+            <img class="img-thumbnail" src="/images/history2.jpg">
           </div>
         </div>
         <div class="row h-100">
           <div class="col-12">
-            <img class="img-fluid mx-auto d-block historyPicture " src="/images/images.png" alt="Dx-ball game picture">
+            <img class="img-fluid mx-auto d-block historyPicture " src="/images/images.png">
           </div>
         </div>
       </div>
@@ -118,21 +111,21 @@
       <div class="container p-5">
         <div class="row mt-4">
           <div class="col-6">
-            <img class="img-thumbnail" src="images/atariphone.jpg" alt="Picture of an old Atari-phone">
+            <img class="img-thumbnail" src="images/atariphone.jpg">
           </div>
           <div class="col-6">
             <div class="col-sm-12 form-group" form action="/action_page.php">
               <div class=" col-sm-12 form-group">
-                <input class="form-control" type="text" id="name" name="name" placeholder="Ditt namn" required>
+                <input class="form-control" type="text" id="name" name="name" placeholder="Your name.." required>
               </div>
               <div class="col-sm-12 form-group">
-                <input class="form-control" type="text" id="email" name="email" placeholder="Din e-mail" required>
+                <input class="form-control" type="text" id="email" name="email" placeholder="Your email.." required>
               </div>
               <div class="col-sm-12 form-group">
-                <textarea class="form-control" id="comments" name="comments" placeholder="Skriv något kul" style="height:170px"></textarea><br>
+                <textarea class="form-control" id="comments" name="comments" placeholder="Write something.." style="height:170px"></textarea><br>
                 <div class="row">
                   <div class="col-sm-12 form-group">
-                    <button class="btn btn-lg btn-primary pull-right knapp" type="submit" value="Submit">Skicka</button>
+                    <button class="btn btn-lg btn-primary pull-right" type="submit" value="Submit">Submit</button>
                   </div>
                 </div>
               </div>
