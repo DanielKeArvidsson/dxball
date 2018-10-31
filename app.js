@@ -22,3 +22,26 @@ const path = require('path');
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './www/index.html'));
 });
+
+
+
+
+//HIGHSCORE
+let fs= require('fs'); // import the fileSystem library
+let bodyParser = require('body-parser'); // import body-parser (to read sent data from clients)
+app.use(bodyParser.json()); // use body-parser
+app.use(bodyParser.urlencoded({ extended: false })); // use body-parser
+ 
+let highscores = require('./www/json/highscore.json'); // load the json file - store it in a new variable
+ 
+// add a route that the browsers/clients can communicate through
+app.post('/add-score', (req, res) => {
+  // console.log(req.body);
+  highscores.push(req.body); // add the new score
+  highscores.sort(function(a,b){
+    //... // Check MDN js array sort
+  });
+  highscores = highscores.slice(0,10); // only keep the top 10 in the array
+  fs.writeFile('./www/json/highscore.json', highscores); // replace the file content with the new array
+  res.json(highscores); // respond to the browser, send the new/updated array
+});

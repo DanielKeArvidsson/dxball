@@ -5,7 +5,7 @@
         "home": "<p>Home<\/p>",
         "history": "<p>The History of Breakout<\/p>",
         "spelet": "<p>Our game<\/p>",
-        "kontakt": "<p>Contact us<\/p>",
+        "highscoreNav": "<p>Highscore<\/p>",
         "flagSv": "<a>Svenska<\/a>",
         "flagEn": "<a>English<\/a>"
       }
@@ -14,39 +14,28 @@
   "startText": {
     "en": [
       {
-        "startInfo": "<h2>Welcome to Breakout by Group 1</h2><p>Click on the pictures below to try some other versions of the game.</p>"
+        "startInfo": "<h3>Welcome to <span class=\"breaktext\"> breakout <\/span>   by Group 1<\/h2><p>Click on the pictures below to try some other versions of the game.</p>"
       }
     ]
   },
   "textHistoryEn": {
     "en": [
       {
-        "theGame": "<h2>the history of breakout</h2><p>Breakout is an arcade game developed and released by Atari in 1976. Breakout is based on having a ball bouncing on a paddle that the player can move. Using the paddle, the player can get the ball to hit the layer of bricks covering the top of the screen. When the ball hits a brick, the ball bounces away and the brick disappears. The game is over if the player misses to get the ball to bounce on the paddle, and the ball touches the bottom of the screen. The game was inspired by the game Pong, which was created by Atari in 1972. Both Steve Jobs and Steve Wozniak contributed to creating the game, and Breakout was the basis and inspiration for certain aspects of the Apple II. </p>"
+        "theGame": "<h2>the history of breakout</h2><p>Breakout is an arcade game developed and released by Atari in 1976. Breakout is based on having a ball bouncing on a paddle that the player can move. Using the paddle, the player can get the ball to hit the layer of bricks covering the top of the screen. When the ball hits a brick, the ball bounces away and the brick disappears. </p><p class=\"para2\"> The game is over if the player misses to get the ball to bounce on the paddle, and the ball touches the bottom of the screen. The game was inspired by the game Pong, which was created by Atari in 1972. Both Steve Jobs and Steve Wozniak contributed to creating the game, and Breakout was the basis and inspiration for certain aspects of the Apple II. </p>"
       }
     ]
   },
   "footerEn": {
     "en": [
-      {
-      "adressH5": "<h5>Address <\/h5>", 
-      "adressP": "<p class=\"mb-0\" > Group1Lernia <br> Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
+      { 
+      "adressP": "<p class=\"mb-0\" >Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
       },
       {
-      "phoneH5": "<h5>Telephone<\/h5>",
       "phoneP": "<p class=\"mb-0\">Phone: <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Cell phone: <a href=\"tel:073-234 56 78\">073-234 56 78<\/a> <\/p>"  
       },
       {
-      "emailH5": "<h5 class=\"mt-3 mt-md-0\"> Email<\/h5>",
       "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
       }
     ]
-  },
-  "textContacts": {
-    "en": [
-        {
-        "kontakttele": "<p>Phone <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Cell phone <a href=\"tel:073-234 56 78\">073-234 56 78<\/a> <br\/> e-mail info@grupp1.com <br\/> or drop in at our place at nordenskiöldsgatan 13 i Malmö<\/p>",
-         "kontakt": "Contact us"
-        }
-     ]
- }
+  }
 }

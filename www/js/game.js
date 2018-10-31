@@ -7,11 +7,11 @@ $(window).keydown(function (e) {
   
 });
 
+let score;
 
 function loadGame() {
   // Main variables
   let lives;
-  let score;
   let paused;
   const bricks = [];
   const keysPressed = {};
@@ -26,7 +26,7 @@ function loadGame() {
 
   // Setup key listeners before starting the first game
   setupKeyListeners();
-  
+
   startNewGame();
 
   // Reset starting variables etc
@@ -139,20 +139,20 @@ function loadGame() {
         let now = new Date();
         if (now - timeOfImpact > 5) {
           timeOfImpact = now;
-        if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
-          // If it bounced on the side of the brick
-          ball.direction.x *= -1;
-        } else {
-          // If it bounced above/below a brick
-          ball.direction.y *= -1;
+          if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
+            // If it bounced on the side of the brick
+            ball.direction.x *= -1;
+          } else {
+            // If it bounced above/below a brick
+            ball.direction.y *= -1;
+          }
+
+          brick.$.remove();
+          bricks.splice(i, 1);
+          score += 20;
+          updateInterface();
         }
-      
-        brick.$.remove();
-        bricks.splice(i, 1);
-        score += 20;
-        updateInterface();
       }
-    }
     }
     if (bricks.length == 0) {
       paused = true;
@@ -171,7 +171,7 @@ function loadGame() {
 
   // Does not work for rectangles, only squares
   function getHorizontalOrVerticalDirection(objA, objB) {
-   // return 'vertical'; // Always return 'vertical' for non-square bricks
+    // return 'vertical'; // Always return 'vertical' for non-square bricks
     // Todo: fix code for rectangle bricks
     const aY = objA.top + objA.height / 2;
     const aX = objA.left + objA.width / 2;
@@ -186,6 +186,7 @@ function loadGame() {
     $('.main-text').hide();
     if (lives < 1) {
       $('.heart3').hide();
+      highscoreName();
       $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
@@ -211,6 +212,15 @@ function loadGame() {
     updateInterface();
   }
 
+
+  function highscoreName() {
+    if (lives === 0) {
+      prompt("Your score is:" + score, "Enter your name")
+      $('.row').append("<td>" + score + "</td>");
+    }
+
+  }
+
   function setupKeyListeners() {
     $(window).keydown(function (e) {
       if (e.which === 37) { keysPressed.left = true; }
@@ -225,7 +235,7 @@ function loadGame() {
     });
   }
 
-  function loadGameBorders(){
+  function loadGameBorders() {
     return {
       left: 0,
       top: 0,
@@ -281,21 +291,21 @@ function loadGame() {
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
 
     const colors = [
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
     ];
 
     let prevLeft = brickCSS.left;
@@ -337,7 +347,7 @@ function loadGame() {
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
       'url("/images/brickblue.png")',
-     ];
+    ];
 
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
@@ -348,7 +358,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
     const colorsUp = [
@@ -367,7 +377,7 @@ function loadGame() {
       'url("/images/brickred.png")',
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
-     ];
+    ];
 
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
@@ -378,7 +388,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
     const colorsUpTwo = [
@@ -397,7 +407,7 @@ function loadGame() {
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
-     ];
+    ];
 
     let prevTopOverTwo = brickCSS.top - brickCSS.height * 2;
     prevLeft = brickCSS.left;
@@ -408,7 +418,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
   }
@@ -450,3 +460,34 @@ function loadGame() {
     }, 1000);
   }
 }
+
+
+
+
+//highscore
+
+function highscoreName() {
+  let player = prompt("Your score is:" + score + "Enter your name");
+  if (lives === 0) {
+    if (player == undefined || player == "") {
+      txt = "noname"
+    }
+    else {
+
+    }
+
+
+  }
+
+  postNewHighscore(player);
+
+}
+
+
+function postNewHighscore(player) {
+  $.post("/add-score", { "name": player, "score": score }, function (responseData) {
+    console.log('the new highscore-list is:', responseData);
+    console.error('append/use the new highscore-list then remove this console.error');
+  });
+}
+
