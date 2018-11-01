@@ -7,6 +7,7 @@ $(window).keydown(function (e) {
 
 });
 
+
 let score;
 
 function loadGame() {
@@ -213,13 +214,6 @@ function loadGame() {
   }
 
 
-  function highscoreName() {
-    if (lives === 0) {
-      prompt("Your score is:" + score, "Enter your name")
-      $('.row').append("<td>" + score + "</td>");
-    }
-
-  }
 
   function setupKeyListeners() {
     $(window).keydown(function (e) {
@@ -430,32 +424,21 @@ function loadGame() {
 }
 
 
-
-
-//highscore
-
+// highscore
 function highscoreName() {
-  let player = prompt("Your score is:" + score + "Enter your name");
-  if (lives === 0) {
-    if (player == undefined || player == "") {
-      txt = "noname"
-    }
-    else {
-
-    }
-
-
+  let player = prompt("Your score is:" + score + "\nEnter your name:");
+  if (player === undefined || player === "") {
+    player = "NoName";
   }
-
   postNewHighscore(player);
-
 }
+
 
 
 function postNewHighscore(player) {
-  $.post("/add-score", { "name": player, "score": score }, function (responseData) {
-    console.log('the new highscore-list is:', responseData);
-    console.error('append/use the new highscore-list then remove this console.error');
-  });
-}
+  $.post("/add-score", {name: player, score: score}, function (responseData) {
 
+   console.log('the new highscore-list is:', responseData);
+
+  });  
+}
