@@ -3,8 +3,8 @@ $('.heart1, .heart2, .heart3').hide();
 
 let startCounter = 0;
 $(window).keydown(function (e) {
-  if (e.which === 32 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++; }
-
+  if (e.which === 13 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++;}
+  
 });
 
 
@@ -23,7 +23,7 @@ function loadGame() {
   let gameBorders = loadGameBorders();
   let timeOfImpact = 0;
 
-  $('.ball, .paddle, .score, .heart1, .heart2, .heart3').show();
+  $('.score, .heart1, .heart2, .heart3').show();
 
   // Setup key listeners before starting the first game
   setupKeyListeners();
@@ -103,7 +103,7 @@ function loadGame() {
       new Audio('/audio/ballhitsbrick.mp3').play()
       ball.left = 0;
       ball.direction.x *= -1;
-    } else if (ball.left + ball.width > gameBorders.width) {
+    } else if (ball.left + ball.width > gameBorders.width + 10) {
       new Audio('/audio/ballhitsbrick.mp3').play()
       ball.left = gameBorders.width - ball.width;
       ball.direction.x *= -1;
@@ -250,16 +250,36 @@ function loadGame() {
     paddle.$.css('left', (paddle.left = gameBorders.width / 2 - paddle.width / 2));
   }
 
-  function resetBall() {
-    ball.$ = $('.ball');
-    ball.speed = initialBallSpeed;
-    ball.$.css('left', (ball.left = 425));
-    ball.$.css('top', (ball.top = 545));
-    ball.direction = { x: 1, y: 1 };
 
-    ball.width = ball.$.width();
-    ball.height = ball.$.height();
-  }
+  
+    function resetBall() {
+      ball.$ = $('.ball');
+      if (window.matchMedia("(min-width: 1200px)").matches) {
+        ball.speed = initialBallSpeed;
+        ball.$.css('left', (ball.left = 425));
+        ball.$.css('top', (ball.top = 545 ));
+      }
+      else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
+        ball.speed = 220;
+        ball.$.css('left', (ball.left = 335));
+        ball.$.css('top', (ball.top = 420));
+      }
+      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
+        ball.speed = 140;
+        ball.$.css('left', (ball.left = 240));
+        ball.$.css('top', (ball.top = 335));
+      }
+      else if (window.matchMedia("(max-width: 659px)").matches) {
+        ball.speed = 100;
+        ball.$.css('left', (ball.left = 137));
+        ball.$.css('top', (ball.top = 207));
+      }
+      ball.direction = { x: 1, y: 1 };
+  
+      ball.width = ball.$.width();
+      ball.height = ball.$.height();
+    }
+  
 
   function spawnBricks() {
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
@@ -283,7 +303,19 @@ function loadGame() {
     ];
 
     let prevLeft = brickCSS.left;
-    let size = '60px 25px';
+    let size;
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+      size = '60px 25px';
+    }
+    else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
+      size = '48px 20px';
+    }
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
+      size = '35px 13px';
+    }
+    else if (window.matchMedia("(max-width: 659px)").matches) {
+      size = '21px 9px';
+    }
     for (let color of colors) {
       const brick = createBrick(prevLeft, brickCSS.top, brickCSS.width, brickCSS.height, color, size);
 

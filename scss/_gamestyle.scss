@@ -1,26 +1,18 @@
 
 .game {
+    position:relative;
     background-image:url('/images/gamebg.png');
-    color:$black;
+    color: white;
     border:15px ridge darkred;
     border-bottom: 5px solid gray;
     box-shadow: 0 2px 0px 0px black;
+    margin:auto;
 }
-
-.pausedGame {
-    display:none;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 25vh;
-  }
 
   .gameStart {
     position: absolute;
     width: 100%;
-    text-align: center;
-    top: 25vh;
-        
+    text-align: center;        
   }
 
   @keyframes start-animation {
@@ -38,69 +30,184 @@
       animation: start-animation 1.5s ease-in-out infinite alternate;
   }
 
-  .gameOverText {
-      text-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px $secondary-color, 0 0 70px $secondary-color, 0 0 80px $secondary-color, 0 0 100px $secondary-color, 0 0 150px $secondary-color;
-  }
-
   .gamePlay {
       background-image:url('/images/gameContBg.jpg');    
       background-size:cover;
   }
+  .arrowButtons {
+      display:none;
+  }
 
-  @media (min-width: 1281px) {
+  // 1
+  @media (min-width: 1200px) {
+    .game {
+        height:624px;
+        min-width:930px;
+        max-width:930px;
+        
+    }
+    .paddle {
+        left:335px;
+        height: 30px;
+        width: 200px;
+        background-image:url('/images/paddle.png');
+        background-size:cover;
+    }
+    .ball {
+        height: 30px;
+        width: 30px;
+        top:545px;
+        left:425px;
+    }
+    .brick {
+        top: 200px;
+        width: 60px;
+        height: 25px;
+    }
     .gameStart {
         font-size:22px;
+        top: 25vh;
     }
     .startGameText {
         font-size:60px;
     }
-    .gameOverText {
-        font-size:40px;
+    .main-text {
+        top:300px;
     }
-    .pausedGame {
-        font-size:20px;
-    }
-    .game-over {
-        font-size:22px;
-    }   
-    .cellbutton {
-        display:none;
+    .heart1, .heart2, .heart3 {
+        height:35px;
+        width:35px;
     }
     
   }
   
- 
-  @media (max-width: 1280px) {
-    
+  // 2
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .game {
+        height:500px;
+        min-width:750px;
+        max-width:750px;
+        
+    }
+    .paddle {
+        left:270px;
+        height: 30px;
+        width: 150px;
+        background-image:url('/images/paddle.png');
+        background-size:150px 30px;
+    }
+    .ball {
+        height: 25px;
+        width: 25px;
+        top:420px;
+        left:335px;
+    }
+    .brick {
+        top: 150px;
+        width: 48px;
+        height: 20px;
+    }
     .gameStart {
         font-size:18px;
+        top: 20vh;
     }
     .startGameText {
-        font-size:45px;
+        font-size: 45px;
     }
-    .gameOverText {
-        font-size:30px;
+    .main-text {
+        top: 250px;
     }
     
-    .game-over {
-        font-size:18px;
-    }   
-    .cellbutton {
-        display:none;
-    }
   }
   
-
-  @media (max-width: 767px) {
-      .startGameText {
+  // 3
+  @media (min-width: 660px) and (max-width: 992px) {
+    .gamePlay {
+        padding-bottom:55px;
+    }
+    .game {
+        height:400px;
+        min-width:555px;
+        max-width:555px;
+        
+    }
+    .paddle {
+        left:198px;
+        height: 25px;
+        width: 100px;
+        background-image:url('/images/paddlesmall.png');
+        background-size:100px 25px;
+    }
+    .ball {
+        height: 20px;
+        width: 20px;
+        top:335px;
+        left:240px;
+    }
+    .brick {
+        top: 125px;
+        width: 35px;
+        height: 13px;
+    }
+    .gameStart {
+        top: 15vh;
+    }
+    .startGameText {
           font-size: 35px;
-      }
-      .gameOverText {
-        font-size:24px;
-      }
-      .cellbutton {
-          display:block;
-      }
+    }
+    .main-text {
+        top:200px;
+    }
+    .heart1, .heart2, .heart3 {
+        height:27px;
+        width:27px;
+    }      
+  }
+
+  // 4
+  @media (max-width: 659px) {
+    .game {
+        height:260px;
+        min-width:345px;
+        max-width:345px;
+    }
+    .paddle {
+        left:113px;
+        width: 60px;
+        height: 17px;
+        background-image:url('/images/paddlesmall.png');
+        background-size:60px 17px;
+    }
+    .ball {
+        height: 15px;
+        width: 15px;
+        top:207px;
+        left:137px;
+    }
+    .brick {
+        top: 80px;
+        width: 21px;
+        height: 9px;
+    }
+    .gameStart {
+        top: 8vh;
+        font-size:12px;
+    }
+    .startGameText {
+          font-size: 28px;
+    }
+    .main-text {
+        top:120px;
+        font-size:10px;
+    }
+    .score {
+        font-size:10px;
+    }
+    .heart1, .heart2, .heart3 {
+        height:20px;
+        width:20px;
+    }
+      
   }
 
   .arrow {
