@@ -7,11 +7,11 @@ $(window).keydown(function (e) {
   
 });
 
-let score;
 
 function loadGame() {
   // Main variables
   let lives;
+  let score;
   let paused;
   const bricks = [];
   const keysPressed = {};
@@ -26,7 +26,7 @@ function loadGame() {
 
   // Setup key listeners before starting the first game
   setupKeyListeners();
-
+  
   startNewGame();
 
   // Reset starting variables etc
@@ -139,20 +139,20 @@ function loadGame() {
         let now = new Date();
         if (now - timeOfImpact > 5) {
           timeOfImpact = now;
-          if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
-            // If it bounced on the side of the brick
-            ball.direction.x *= -1;
-          } else {
-            // If it bounced above/below a brick
-            ball.direction.y *= -1;
-          }
-
-          brick.$.remove();
-          bricks.splice(i, 1);
-          score += 20;
-          updateInterface();
+        if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
+          // If it bounced on the side of the brick
+          ball.direction.x *= -1;
+        } else {
+          // If it bounced above/below a brick
+          ball.direction.y *= -1;
         }
+      
+        brick.$.remove();
+        bricks.splice(i, 1);
+        score += 20;
+        updateInterface();
       }
+    }
     }
     if (bricks.length == 0) {
       paused = true;
@@ -171,7 +171,7 @@ function loadGame() {
 
   // Does not work for rectangles, only squares
   function getHorizontalOrVerticalDirection(objA, objB) {
-    // return 'vertical'; // Always return 'vertical' for non-square bricks
+   // return 'vertical'; // Always return 'vertical' for non-square bricks
     // Todo: fix code for rectangle bricks
     const aY = objA.top + objA.height / 2;
     const aX = objA.left + objA.width / 2;
@@ -186,7 +186,6 @@ function loadGame() {
     $('.main-text').hide();
     if (lives < 1) {
       $('.heart3').hide();
-      highscoreName();
       $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
@@ -212,15 +211,6 @@ function loadGame() {
     updateInterface();
   }
 
-
-  function highscoreName() {
-    if (lives === 0) {
-      prompt("Your score is:" + score, "Enter your name")
-      $('.row').append("<td>" + score + "</td>");
-    }
-
-  }
-
   function setupKeyListeners() {
     $(window).keydown(function (e) {
       if (e.which === 37) { keysPressed.left = true; }
@@ -235,7 +225,7 @@ function loadGame() {
     });
   }
 
-  function loadGameBorders() {
+  function loadGameBorders(){
     return {
       left: 0,
       top: 0,
@@ -268,17 +258,22 @@ function loadGame() {
       else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
         ball.speed = 220;
         ball.$.css('left', (ball.left = 335));
-        ball.$.css('top', (ball.top = 420));
+        ball.$.css('top', (ball.top = 425));
       }
-      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
-        ball.speed = 140;
-        ball.$.css('left', (ball.left = 240));
-        ball.$.css('top', (ball.top = 335));
+      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
+        ball.speed = 500;
+        ball.$.css('left', (ball.left = 355));
+        ball.$.css('top', (ball.top = 1110));
+      }
+      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
+        ball.speed = 180;
+        ball.$.css('left', (ball.left = 290));
+        ball.$.css('top', (ball.top = 370));
       }
       else if (window.matchMedia("(max-width: 659px)").matches) {
-        ball.speed = 100;
+        ball.speed = 140;
         ball.$.css('left', (ball.left = 137));
-        ball.$.css('top', (ball.top = 207));
+        ball.$.css('top', (ball.top = 348));
       }
       ball.direction = { x: 1, y: 1 };
   
@@ -291,21 +286,21 @@ function loadGame() {
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
 
     const colors = [
-      'url("/images/brickdarkgreen.png")',
-      'url("/images/brickyellow.png")',
-      'url("/images/brickblue.png")',
-      'url("/images/brickred.png")',
-      'url("/images/brickpurple.png")',
-      'url("/images/brickdarkgreen.png")',
-      'url("/images/brickyellow.png")',
-      'url("/images/brickblue.png")',
-      'url("/images/brickred.png")',
-      'url("/images/brickpurple.png")',
-      'url("/images/brickdarkgreen.png")',
-      'url("/images/brickyellow.png")',
-      'url("/images/brickblue.png")',
-      'url("/images/brickred.png")',
-      'url("/images/brickpurple.png")',
+     'url("/images/brickdarkgreen.png")',
+     'url("/images/brickyellow.png")',
+     'url("/images/brickblue.png")',
+     'url("/images/brickred.png")',
+     'url("/images/brickpurple.png")',
+     'url("/images/brickdarkgreen.png")',
+     'url("/images/brickyellow.png")',
+     'url("/images/brickblue.png")',
+     'url("/images/brickred.png")',
+     'url("/images/brickpurple.png")',
+     'url("/images/brickdarkgreen.png")',
+     'url("/images/brickyellow.png")',
+     'url("/images/brickblue.png")',
+     'url("/images/brickred.png")',
+     'url("/images/brickpurple.png")',
     ];
 
     let prevLeft = brickCSS.left;
@@ -316,11 +311,14 @@ function loadGame() {
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
       size = '48px 20px';
     }
-    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
-      size = '35px 13px';
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
+      size = '51px 50px';
+    }
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
+      size = '42px 18px';
     }
     else if (window.matchMedia("(max-width: 659px)").matches) {
-      size = '21px 9px';
+      size = '21px 18px';
     }
     for (let color of colors) {
       const brick = createBrick(prevLeft, brickCSS.top, brickCSS.width, brickCSS.height, color, size);
@@ -347,7 +345,7 @@ function loadGame() {
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
       'url("/images/brickblue.png")',
-    ];
+     ];
 
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
@@ -358,7 +356,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-
+    
     }
 
     const colorsUp = [
@@ -377,7 +375,7 @@ function loadGame() {
       'url("/images/brickred.png")',
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
-    ];
+     ];
 
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
@@ -388,7 +386,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-
+    
     }
 
     const colorsUpTwo = [
@@ -407,7 +405,7 @@ function loadGame() {
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
-    ];
+     ];
 
     let prevTopOverTwo = brickCSS.top - brickCSS.height * 2;
     prevLeft = brickCSS.left;
@@ -418,7 +416,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-
+    
     }
 
   }
@@ -461,33 +459,15 @@ function loadGame() {
   }
 }
 
-
-
-
 //highscore
 
-function highscoreName() {
-  let player = prompt("Your score is:" + score + "Enter your name");
-  if (lives === 0) {
-    if (player == undefined || player == "") {
-      txt = "noname"
-    }
-    else {
-
-    }
-
-
-  }
-
-  postNewHighscore(player);
-
-}
-
-
-function postNewHighscore(player) {
-  $.post("/add-score", { "name": player, "score": score }, function (responseData) {
+$('.send-to-highscore').on('click', postNewHighscore);
+ 
+function postNewHighscore() {
+  let name = prompt('Enter name'); // fetch the name from your <input>/or otherwhere
+  let score = $('.score').text(); // fetch the score from the game's "score"-variable
+  $.post( "/add-score", { name, score }, function(responseData) {
     console.log('the new highscore-list is:', responseData);
     console.error('append/use the new highscore-list then remove this console.error');
   });
 }
-
