@@ -213,6 +213,28 @@ function loadGame() {
     updateInterface();
   }
 
+  window.oncontextmenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  };
+
+  $( ".arrowright" ).on('touchstart', function() {
+    keysPressed.right = true;
+  });
+  
+  $( ".arrowright" ).on('touchend', function() {
+    keysPressed.right = false;
+  });
+
+  $( ".arrowleft" ).on('touchstart', function() {
+    keysPressed.left = true;
+  });
+
+  $( ".arrowleft" ).on('touchend', function() {
+    keysPressed.left = false;
+  });
+
   function setupKeyListeners() {
     $(window).keydown(function (e) {
       if (e.which === 37) { keysPressed.left = true; }
@@ -255,7 +277,7 @@ function loadGame() {
       if (window.matchMedia("(min-width: 1200px)").matches) {
         ball.speed = initialBallSpeed;
         ball.$.css('left', (ball.left = 425));
-        ball.$.css('top', (ball.top = 545 ));
+        ball.$.css('top', (ball.top = 545));
       }
       else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
         ball.speed = 220;

@@ -86,8 +86,19 @@
       background-size:cover;
   }
 
+  .arrowright, .arrowleft {
+      display:none;
+      position:absolute;
+  }
+
+@media (hover : none) {
+    .arrowright, .arrowleft {
+        display:block;
+    }
+}
+
   // 1
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     .game {
         height:624px;
         min-width:930px;
@@ -130,7 +141,7 @@
 }
   
   // 2
-@media (min-width: 993px) and (max-width: 1200px) {
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
     .game {
         height:500px;
         min-width:750px;
@@ -170,7 +181,7 @@
   
   // 3
   
-@media (min-width: 660px) and (max-width: 992px) and (orientation: portrait) {
+@media only screen and (min-width: 660px) and (max-width: 999px) and (orientation: portrait) {
     .gamePlay {
         padding-bottom:280px;
         padding-right:75px;
@@ -218,10 +229,23 @@
     .score{
         font-size:28px;
     }
-   
+   .arrowright {
+       //display:block;
+       top: 1550px;
+       right:100px;
+   }
+   .arrowleft {
+       //display:block;
+       top:1550px;
+       left:100px;
+   }
+   .arrowleftimage, .arrowrightimage {
+       width: 120px;
+       height:120px;
+   }
 }
 
-@media (min-width: 660px) and (max-width: 992px) and (orientation: landscape) {
+@media only screen and (min-width: 660px) and (max-width: 999px) and (orientation: landscape) {
     .gamePlay {
         padding-bottom:5px;
     }
@@ -262,12 +286,26 @@
         height:30px;
         width:30px;
     }
-     
+    .arrowleft {
+        //display:block;
+        top:320px;
+        left:50px;
+    }
+    .arrowright {
+        //display:block;
+        top:320px;
+        right:50px;
+    }
+    .arrowleftimage, .arrowrightimage {
+        width: 80px;
+        height:80px;
+    }
+    
 }
 
   // 4
   
-@media (max-width: 659px) {
+@media only screen and (max-width: 659px) {
     .game {
         height:400px;
         min-width:345px;
@@ -313,14 +351,10 @@
 }
 
 .arrow {
-    cursor: pointer;
-    height: 120px;
-    left: 50%;
-    position: absolute;
-    top: 50%;
+    
     transform: translateX(-50%) translateY(-50%);
     transition: transform .1s;
-    width: 80px;
+    
     
     $transition-time: .15s;
     
