@@ -18,6 +18,7 @@ $('.playButton').click (function(){
 
 let score;
 
+
 function loadGame() {
   // Main variables
   let lives;
@@ -35,7 +36,7 @@ function loadGame() {
 
   // Setup key listeners before starting the first game
   setupKeyListeners();
-  
+
   startNewGame();
 
   // Reset starting variables etc
@@ -148,24 +149,25 @@ function loadGame() {
         let now = new Date();
         if (now - timeOfImpact > 10) {
           timeOfImpact = now;
-        if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
-          // If it bounced on the side of the brick
-          ball.direction.x *= -1;
-        } else {
-          // If it bounced above/below a brick
-          ball.direction.y *= -1;
+          if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
+            // If it bounced on the side of the brick
+            ball.direction.x *= -1;
+          } else {
+            // If it bounced above/below a brick
+            ball.direction.y *= -1;
+          }
+
+          brick.$.remove();
+          bricks.splice(i, 1);
+          score += 20;
+
+          if (bricks.length == 0) {
+            paused = true;
+          }
+
+          updateInterface();
         }
-      
-        brick.$.remove();
-        bricks.splice(i, 1);
-        score += 20;
-        updateInterface();
       }
-    }
-    }
-    if (bricks.length == 0) {
-      paused = true;
-      updateInterface();
     }
   }
 
@@ -180,7 +182,7 @@ function loadGame() {
 
   // Does not work for rectangles, only squares
   function getHorizontalOrVerticalDirection(objA, objB) {
-   // return 'vertical'; // Always return 'vertical' for non-square bricks
+    // return 'vertical'; // Always return 'vertical' for non-square bricks
     // Todo: fix code for rectangle bricks
     const aY = objA.top + objA.height / 2;
     const aX = objA.left + objA.width / 2;
@@ -205,6 +207,7 @@ function loadGame() {
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
+      highscoreName();
     } else if (paused) {
       if (window.matchMedia("(hover : none)").matches){
           $('.mobilButton').show();
@@ -233,25 +236,25 @@ function loadGame() {
     updateInterface();
   }
 
-  window.oncontextmenu = function(event) {
+  window.oncontextmenu = function (event) {
     event.preventDefault();
     event.stopPropagation();
     return false;
   };
 
-  $( ".arrowright" ).on('touchstart', function() {
+  $(".arrowright").on('touchstart', function () {
     keysPressed.right = true;
   });
-  
-  $( ".arrowright" ).on('touchend', function() {
+
+  $(".arrowright").on('touchend', function () {
     keysPressed.right = false;
   });
 
-  $( ".arrowleft" ).on('touchstart', function() {
+  $(".arrowleft").on('touchstart', function () {
     keysPressed.left = true;
   });
 
-  $( ".arrowleft" ).on('touchend', function() {
+  $(".arrowleft").on('touchend', function () {
     keysPressed.left = false;
   });
 
@@ -269,7 +272,7 @@ function loadGame() {
     });
   }
 
-  function loadGameBorders(){
+  function loadGameBorders() {
     return {
       left: 0,
       top: 0,
@@ -291,35 +294,35 @@ function loadGame() {
   }
 
 
-  
-    function resetBall() {
-      ball.$ = $('.ball');
-      if (window.matchMedia("(min-width: 1200px)").matches) {
-        ball.speed = initialBallSpeed;
-        ball.$.css('left', (ball.left = 425));
-        ball.$.css('top', (ball.top = 545));
-      }
-      else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
-        ball.speed = 220;
-        ball.$.css('left', (ball.left = 335));
-        ball.$.css('top', (ball.top = 425));
-      }
-      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
-        ball.speed = 500;
-        ball.$.css('left', (ball.left = 355));
-        ball.$.css('top', (ball.top = 1110));
-      }
-      else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
-        ball.speed = 180;
-        ball.$.css('left', (ball.left = 290));
-        ball.$.css('top', (ball.top = 370));
-      }
-      else if (window.matchMedia("(max-width: 659px)").matches) {
-        ball.speed = 140;
-        ball.$.css('left', (ball.left = 137));
-        ball.$.css('top', (ball.top = 348));
-      }
-     
+
+  function resetBall() {
+    ball.$ = $('.ball');
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+      ball.speed = initialBallSpeed;
+      ball.$.css('left', (ball.left = 425));
+      ball.$.css('top', (ball.top = 545));
+    }
+    else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
+      ball.speed = 220;
+      ball.$.css('left', (ball.left = 335));
+      ball.$.css('top', (ball.top = 425));
+    }
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
+      ball.speed = 500;
+      ball.$.css('left', (ball.left = 355));
+      ball.$.css('top', (ball.top = 1110));
+    }
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
+      ball.speed = 180;
+      ball.$.css('left', (ball.left = 290));
+      ball.$.css('top', (ball.top = 370));
+    }
+    else if (window.matchMedia("(max-width: 659px)").matches) {
+      ball.speed = 140;
+      ball.$.css('left', (ball.left = 137));
+      ball.$.css('top', (ball.top = 348));
+    }
+
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
       ball.speed = 220;
       ball.$.css('left', (ball.left = 335));
@@ -346,21 +349,21 @@ function loadGame() {
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
 
     const colors = [
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
-     'url("/images/brickdarkgreen.png")',
-     'url("/images/brickyellow.png")',
-     'url("/images/brickblue.png")',
-     'url("/images/brickred.png")',
-     'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
+      'url("/images/brickdarkgreen.png")',
+      'url("/images/brickyellow.png")',
+      'url("/images/brickblue.png")',
+      'url("/images/brickred.png")',
+      'url("/images/brickpurple.png")',
     ];
 
     let prevLeft = brickCSS.left;
@@ -387,6 +390,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
+      
     }
 
     const colorsUpThree = [
@@ -405,18 +409,19 @@ function loadGame() {
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
       'url("/images/brickblue.png")',
-     ];
+    ];
 
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
+      
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
     const colorsUp = [
@@ -435,18 +440,19 @@ function loadGame() {
       'url("/images/brickred.png")',
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
-     ];
+    ];
 
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
+      
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
     const colorsUpTwo = [
@@ -465,7 +471,7 @@ function loadGame() {
       'url("/images/brickpurple.png")',
       'url("/images/brickdarkgreen.png")',
       'url("/images/brickyellow.png")',
-     ];
+    ];
 
     let prevTopOverTwo = brickCSS.top - brickCSS.height * 2;
     prevLeft = brickCSS.left;
@@ -476,7 +482,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-    
+
     }
 
   }
@@ -539,6 +545,9 @@ function loadGame() {
 // highscore
 
 $.getJSON("/json/highscore.json", appendHighscores);
+
+
+
 function highscoreName() {
   $('#myModal').modal('show');
   $('#recipient-name').trigger('focus');
@@ -557,15 +566,15 @@ function highscoreName() {
 
 
 
-function appendHighscores(highscores){
+function appendHighscores(highscores) {
 
   $('tbody').empty();
   let i = 1;
   for (key in highscores) {
     let value = highscores[key];
 
-    let table = "<tr><td>"+i+"</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
-    
+    let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
+
     $('tbody').append(table);
     i++;
   }
