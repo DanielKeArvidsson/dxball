@@ -87,7 +87,6 @@ function Englang(myLang){
       }
     }
   }
-  
 }
 $(document).on('click', '.normal', function(){
   $(".paddle").css("width", "200px");
