@@ -13,7 +13,6 @@ let score;
 function loadGame() {
   // Main variables
   let lives;
-  let score;
   let paused;
   const bricks = [];
   const keysPressed = {};
@@ -189,6 +188,7 @@ function loadGame() {
     if (lives < 1) {
       $('.heart3').hide();
       $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
+      highscoreName();
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
@@ -299,11 +299,7 @@ function loadGame() {
         ball.$.css('left', (ball.left = 137));
         ball.$.css('top', (ball.top = 348));
       }
-      ball.direction = { x: 1, y: 1 };
-  
-      ball.width = ball.$.width();
-      ball.height = ball.$.height();
-    }
+      
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
       ball.speed = 220;
       ball.$.css('left', (ball.left = 335));
@@ -506,31 +502,20 @@ function loadGame() {
 
 // highscore
 
-// $('#myModal').hide();
-
-
-
-// function playVal(){
-//   let playerVal=$('#recipient-name').val();
-//   playerName +=playerVal;
-// console.log(playerName)
-// }
-
-
-
+$.getJSON("/json/highscore.json", appendHighscores);
 function highscoreName() {
 
-  // let player=$('#myModal').modal('show');
+ 
   let player = prompt("Your score is:" + score + "\nEnter your name:");
   if (player === undefined || player === "") {
     player = "NoName";
   }
-  //postNewHighscore(player);
+  // postNewHighscore(player);
   $.post("/add-score", { name: player, score: score }, appendHighscores);
 
 };
 
-$.getJSON("/json/highscore.json", appendHighscores);
+
 
 
 function appendHighscores(highscores){
@@ -548,79 +533,3 @@ function appendHighscores(highscores){
 }
 
 
-// $.getJSON("/json/highscore.json", myScores);
-
-// function myScores(jsonfile) {
-//   let bestscore=jsonfile;
-
-//   let theHighScore = "";
-//   let tr = $('</tr>');
-//   let th = $('<th scope="row"></th>');
-//   let td = $('</td>');
-//   let thescores="";
-//   for (let theHighScore of jsonfile){
-//     // console.log(theHighScore);
-//   }
-//   let numb = 0;
-//   for(var i = 1; i <= 10; ++i){
-//           numb++;
-//           console.log(numb)
-//   }
-//   for(key in jsonfile) {
-//     if(jsonfile.hasOwnProperty(key)) {
-
-//         var value = jsonfile[key];
-//         // console.log(value.score)
-//         //do something with value;
-//         var table = "<tr><td></td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
-
-//    $.each(value, function(i, value) {
-
-//     $("table tbody").append(table);
-
-
-//     // $('<tr/>', {
-//     //   'text': value
-//     // }).appendTo('.theScore');
-//     // $('<tr/>', {
-//     //   'text': value.name
-//     // }).appendTo('.theName');
-//   });
-
-//   // $.each(value, function(i, value) {
-//   //   $('<tr/>', {
-//   //     'text': value.name
-//   //   }).appendTo('.theName');
-//   // });
-//     }
-// }
-
-//   }
-
-
-
-
-
-
-// th.append(value);
-
-//  tr.append(td);
-//  $('.bodyHigh').append(th);
-// for (let theHighScore of jsonfile)
-// if(i=0, i<jsonfile.length, i++){
-//   thescores=theHighScore[i]
-
-
-
-// let position=0;
-//         if(i=0, i<10, ++i){
-//           position+=position[i];
-
-//         }
-
-
-//         $(value).each(function() {
-//           $('tbody').append($("<tr><td>"+position+"</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>"));
-//       });
-
-//       console.log(position[i])
