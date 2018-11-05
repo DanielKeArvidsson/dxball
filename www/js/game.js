@@ -518,13 +518,16 @@ $.getJSON("/json/highscore.json", appendHighscores);
 function highscoreName() {
   $('#myModal').modal('show');
   $('#recipient-name').trigger('focus');
-  let player = prompt("Your score is:" + score + "\nEnter your name:");
-  if (player === undefined || player === "") {
-    player = "NoName";
-  }
+  $('.endScore').text(score);
+ // let player = ("Your score is:" + score + "\nEnter your name:");
+ // if (player === undefined || player === "") {
+   // player = "NoName";
+  //}
   // postNewHighscore(player);
   $.post("/add-score", { name: player, score: score }, appendHighscores);
-
+  $('body').on('hidden.bs.modal', '.modal', function () {
+    $(this).removeData('bs.modal');
+  });
 };
 
 
@@ -543,6 +546,8 @@ function appendHighscores(highscores) {
     i++;
   }
 }
+
+
 
 
 
