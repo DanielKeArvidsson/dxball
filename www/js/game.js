@@ -192,26 +192,31 @@ function loadGame() {
     return (Math.abs(direction) < Math.PI / 4 || Math.abs(direction) > Math.PI / 4 * 3) ? 'horizontal' : 'vertical';
   }
 
+
+
+
   function updateInterface() {
     $('.score span').text((score + '').padStart(5, '0'));
     $('.main-text').hide();
     if (lives < 1) {      
       $('.heart3').hide();
       if (window.matchMedia("(hover : none)").matches) {
-        $('.gameOverButton').show();
+       
       }
       else {
-<<<<<<< HEAD
         $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
-=======
-      $('.gameOverText').show();
->>>>>>> master
+        highscoreName();
       }
-      highscoreName();
+      
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
-      highscoreName();
+
+      
+        highscoreName();
+        $('#submit-new-score').on('click', function () {
+          window.location.reload();
+        });
     } else if (paused) {
       if (window.matchMedia("(hover : none)").matches) {
         $('.mobilButton').show();
@@ -552,6 +557,7 @@ $.getJSON("/json/highscore.json", appendHighscores);
 
 
 $('#submit-new-score').on('click', function () {
+  
   $.post("/add-score",
     {
       name: $('#recipient-name').val() || 'NoName',
@@ -565,6 +571,8 @@ $('#submit-new-score').on('click', function () {
   { $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600); }
   window.history.pushState('',"highscore","/highscore");
 });
+
+
 
 function highscoreName() {
   $('#myModal').modal('show');
