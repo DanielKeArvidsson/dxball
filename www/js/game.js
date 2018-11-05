@@ -299,7 +299,7 @@ function loadGame() {
         ball.$.css('left', (ball.left = 137));
         ball.$.css('top', (ball.top = 348));
       }
-      
+     
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
       ball.speed = 220;
       ball.$.css('left', (ball.left = 335));
@@ -497,7 +497,7 @@ function loadGame() {
       }, updateSpeed);
     }, 1000);
   }
-}
+
 
 
 // highscore
@@ -530,6 +530,7 @@ function appendHighscores(highscores){
     $('tbody').append(table);
     i++;
   }
+}
 }
 
 
