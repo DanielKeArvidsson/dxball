@@ -49,7 +49,6 @@ body, {
     display: table;
 }
 
-
 main {
     background-color: $black;
   }
@@ -57,9 +56,7 @@ main {
     font-family: 'spacetech';
     src:url('/fonts/Spacetech.ttf')
 }
-.navbar-brand {
-    font-family: 'spacetech' !important;
-}
+
 .about {
     margin-top: 3px;
     color: $white;
@@ -104,20 +101,6 @@ picture > a > img{
     }
 }
 
-
-.border-nav{
-    border-bottom:8px ridge darkred;
-}
-
-
-
-a:link, a:visited, a:hover, a:active { color: white }
-
-
-.navbar-toggler {
-    background-color: whitesmoke;
-
-}
   .breaktext {
     font-family:'spacetech';
     font-size:30px;
