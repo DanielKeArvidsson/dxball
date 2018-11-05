@@ -34,7 +34,7 @@ app.use(bodyParser.json()); // use body-parser
 app.use(bodyParser.urlencoded({ extended: false })); // use body-parser
 
 let highscores = require('./www/json/highscore.json'); // load the json file - store it in a new variable
-// highscores.length = 0;
+//highscores.length = 0;   //un-comment and restart server to reset the json file!
 // add a route that the browsers/clients can communicate through
 app.post('/add-score', (req, res) => {
   highscores.push(req.body); // add the new score

@@ -8,7 +8,7 @@ $(window).keydown(function (e) {
 });
 */
 
-$('.playButton').click (function(){
+$('.playButton').click(function () {
   loadGame();
   $('.playButton').hide();
   $('.startGameText').hide();
@@ -197,11 +197,11 @@ function loadGame() {
     $('.main-text').hide();
     if (lives < 1) {
       $('.heart3').hide();
-      if (window.matchMedia("(hover : none)").matches){
+      if (window.matchMedia("(hover : none)").matches) {
         $('.gameOverButton').show();
       }
       else {
-      $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
+        $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
       }
       highscoreName();
     } else if (!bricks.length) {
@@ -209,11 +209,11 @@ function loadGame() {
       $('.main-text').text('CONGRATULATIONS - YOU WON');
       highscoreName();
     } else if (paused) {
-      if (window.matchMedia("(hover : none)").matches){
-          $('.mobilButton').show();
+      if (window.matchMedia("(hover : none)").matches) {
+        $('.mobilButton').show();
       }
-      else{
-      $('.main-text').text('PAUSED - press ENTER to continue...');
+      else {
+        $('.main-text').text('PAUSED - press ENTER to continue...');
       }
     } else {
       $('.main-text').text('');
@@ -228,7 +228,9 @@ function loadGame() {
     if (lives > 0) {
       paused = !paused;
     } else {
+      
       startNewGame();
+
     }
     $('.mobilButton').hide();
     $('.gameOverButton').hide();
@@ -389,7 +391,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-      
+
     }
 
     const colorsUpThree = [
@@ -413,7 +415,7 @@ function loadGame() {
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
-      
+
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -444,7 +446,7 @@ function loadGame() {
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
-      
+
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -522,7 +524,7 @@ function loadGame() {
       }, updateSpeed);
     }, 1000);
   }
-  $('.mobilButton').click (function(){
+  $('.mobilButton').click(function () {
     if (lives > 0) {
       paused = false;
     } else {
@@ -531,35 +533,38 @@ function loadGame() {
     $('.mobilButton').hide();
   });
 
-  $('.gameOverButton').click (function(){
-    
-      startNewGame();
-    
+  $('.gameOverButton').click(function () {
+
+    startNewGame();
+
     $('.gameOverButton').hide();
   });
 }
-
-
 
 // highscore
 
 $.getJSON("/json/highscore.json", appendHighscores);
 
 
+$('#submit-new-score').on('click', function () {
+  $.post("/add-score",
+    {
+      name: $('#recipient-name').val() || 'NoName',
+      score: score
+    }, appendHighscores)
 
-function highscoreName() {
-  $('#myModal').modal('show');
-  $('#recipient-name').trigger('focus');
-  $('.endScore').text(score);
- // let player = ("Your score is:" + score + "\nEnter your name:");
- // if (player === undefined || player === "") {
-   // player = "NoName";
-  //}
-  // postNewHighscore(player);
-  $.post("/add-score", { name: player, score: score }, appendHighscores);
+    
   $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
   });
+  { $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600); }
+  window.history.pushState('',"highscore","/highscore");
+});
+
+function highscoreName() {
+  $('#myModal').modal('show');
+  $('#recipient-name').val('').trigger('focus');
+  $('.endScore').text(score);
 };
 
 
