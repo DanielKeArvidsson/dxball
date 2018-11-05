@@ -17,6 +17,11 @@
     width: 100%;
     text-align: center;
 }
+.gameOverText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
   
 .paddle {  
     position: absolute;
@@ -56,8 +61,16 @@
     color: white;
     border:15px ridge darkred;
     border-bottom: 5px solid gray;
-    box-shadow: 0 2px 0px 0px black;
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+    box-shadow: 0 10px 0px 0px gray;
     margin:auto;
+}
+
+.bottomfire {
+    background-image:url(/images/bottomfire.gif);
+    position:absolute;
+    border-radius:50px;
 }
 
 .playButton {
@@ -99,14 +112,6 @@
     }
 }
 
-@keyframes start-animationb {
-    from {
-      box-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px $secondary-color, 0 0 70px $secondary-color, 0 0 80px $secondary-color, 0 0 100px $secondary-color, 0 0 150px $secondary-color;
-    }
-    to {
-      box-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px $secondary-color, 0 0 35px $secondary-color, 0 0 40px $secondary-color, 0 0 50px $secondary-color, 0 0 75px $secondary-color;
-    }
-}
 
   .startGameText {
       font-family:'spacetech';
@@ -143,7 +148,13 @@
         max-width:930px;
         
     }
-
+    .bottomfire {        
+        background-size:93px 20px;
+        height:20px;
+        width:880px;        
+        top:598px;
+        left:10px;        
+    }
     .playButton {
         width:190px;
         height:45px;
@@ -181,6 +192,9 @@
     .main-text {
         top:300px;
     }
+    .gameOverText {
+        top:300px;
+    }
     .heart1, .heart2, .heart3 {
         height:35px;
         width:35px;
@@ -196,6 +210,13 @@
         max-width:750px;
         
     }
+    .bottomfire {        
+        background-size:93px 18px;
+        height:18px;
+        width:700px;        
+        top:475px;
+        left:10px;
+    } 
     .playButton {
         width:190px;
         height:45px;
@@ -232,6 +253,9 @@
     .main-text {
         top: 250px;
     }
+    .gameOverText {
+        top:250px;
+    }
     
 }
   
@@ -249,6 +273,13 @@
         max-width:796px;
         
     }
+    .bottomfire {        
+        background-size:93px 20px;
+        height:20px;
+        width:745px;        
+        top:1170px;
+        left:10px;
+    } 
     .playButton {
         width:240px;
         height:70px;
@@ -303,6 +334,10 @@
         font-size:28px;
         top:600px;
     }
+    .gameOverText {
+        font-size:28px;
+        top:600px;
+    }
     .heart1, .heart2, .heart3 {
         height:57px;
         width:57px;
@@ -335,6 +370,13 @@
         min-width:660px;
         max-width:660px;
         
+    }
+    .bottomfire {        
+        background-size:93px 16px;
+        height:16px;
+        width:610px;        
+        top:410px;
+        left:10px;
     }
     .playButton {
         width:190px;
@@ -385,6 +427,9 @@
     .main-text {
         top:200px;
     }
+    .gameOverText {
+        top:200px;
+    }
     .heart1, .heart2, .heart3 {
         height:30px;
         width:30px;
@@ -413,6 +458,13 @@
         height:400px;
         min-width:345px;
         max-width:345px;
+    }
+    .bottomfire {        
+        background-size:93px 14px;
+        height:14px;
+        width:295px;        
+        top:375px;
+        left:10px;
     }
     .playButton {
         width:130px;
@@ -448,6 +500,10 @@
           top: 14vh;
     }
     .main-text {
+        top:180px;
+        font-size:10px;
+    }
+    .gameOverText {
         top:180px;
         font-size:10px;
     }
