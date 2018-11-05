@@ -122,7 +122,7 @@ function loadGame() {
       new Audio('/audio/ballhitsbrick.mp3').play()
       ball.top = 0;
       ball.direction.y *= -1;
-    } else if (ball.top + ball.height > gameBorders.height) {
+    } else if (ball.top + ball.height > gameBorders.height +10) {
       new Audio('/audio/powerdown.wav').play()
       loseLife();
       return false;
