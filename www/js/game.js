@@ -1,9 +1,9 @@
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton').hide();
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText').hide();
 /*
 let startCounter = 0;
 $(window).keydown(function (e) {
-  if (e.which === 13 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++; }
+  if (e.which === 13 && startCounter === 0) { loadGame(); $('.playButton').hide(); $('.startGameText').hide(); startCounter++; }
 
 });
 */
@@ -146,7 +146,7 @@ function loadGame() {
       if (!isRectAOutsideRectB(ball, brick)) {
         new Audio('/audio/ballhitsbrick.mp3').play()
         let now = new Date();
-        if (now - timeOfImpact > 5) {
+        if (now - timeOfImpact > 10) {
           timeOfImpact = now;
         if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
           // If it bounced on the side of the brick
@@ -193,13 +193,13 @@ function loadGame() {
   function updateInterface() {
     $('.score span').text((score + '').padStart(5, '0'));
     $('.main-text').hide();
-    if (lives < 1) {
+    if (lives < 1) {      
       $('.heart3').hide();
       if (window.matchMedia("(hover : none)").matches){
         $('.gameOverButton').show();
       }
       else {
-      $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
+      $('.gameOverText').show();
       }
       highscoreName();
     } else if (!bricks.length) {
@@ -229,6 +229,7 @@ function loadGame() {
     }
     $('.mobilButton').hide();
     $('.gameOverButton').hide();
+    $('.gameOverText').hide();
     updateInterface();
   }
 
