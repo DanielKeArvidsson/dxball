@@ -5,44 +5,11 @@ body, {
   
 }  
 
-.myButton1 {
-   
-        background:url(/images/sv-flag.svg);
-        cursor:pointer;
-        border:none;
-        width:34px;
-        height:26px;
-        float:right;
-        outline: none;
-        transition: transform 0.2s;
-        &:hover{
-            transform: scale(0.8);
-        }
-       
-}
-
-.myButton2 {
-    background:url(/images/us-flag.svg);
-    cursor:pointer;
-    border:none;
-    width:34px;
-    height:26px;
-    float: right;
-    outline: none;
-    transition: transform 0.3s;
-    &:hover{
-        transform: scale(0.8);
-    }
-}
-
-
-
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
-
 
 main {
     background-color: $black;
@@ -51,9 +18,7 @@ main {
     font-family: 'spacetech';
     src:url('/fonts/Spacetech.ttf')
 }
-.navbar-brand {
-    font-family: 'spacetech' !important;
-}
+
 .about {
     margin-top: 3px;
     color: $white;
@@ -98,20 +63,6 @@ picture > a > img{
     }
 }
 
-
-.border-nav{
-    border-bottom:8px ridge darkred;
-}
-
-
-
-a:link, a:visited, a:hover, a:active { color: white }
-
-
-.navbar-toggler {
-    background-color: whitesmoke;
-
-}
   .breaktext {
     font-family:'spacetech';
     font-size:30px;
