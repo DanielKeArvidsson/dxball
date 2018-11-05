@@ -27,7 +27,7 @@
 .paddle {
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: 0px;
 }
 
 .brick {
@@ -199,11 +199,6 @@
         height: 25px;
     }
 
-    .gameStart {
-        font-size: 22px;
-        top: 25vh;
-    }
-
     .startGameText {
         font-size: 60px;
         top: 25vh;
@@ -270,11 +265,6 @@
         top: 150px;
         width: 48px;
         height: 20px;
-    }
-
-    .gameStart {
-        font-size: 18px;
-        top: 20vh;
     }
 
     .startGameText {
@@ -362,11 +352,6 @@
         top: 400px;
         width: 51px;
         height: 50px;
-    }
-
-    .gameStart {
-        font-size: 25px;
-        top: 15vh;
     }
 
     .startGameText {
@@ -479,10 +464,6 @@
         height: 18px;
     }
 
-    .gameStart {
-        top: 15vh;
-    }
-
     .startGameText {
         font-size: 40px;
         top: 15vh;
@@ -505,14 +486,14 @@
 
     .arrowleft {
         //display:block;
-        top: 320px;
-        left: 50px;
+        top:340px;
+        left:50px;
     }
 
     .arrowright {
         //display:block;
-        top: 320px;
-        right: 50px;
+        top:340px;
+        right:50px;
     }
 
     .arrowleftimage,
@@ -567,11 +548,6 @@
         top: 140px;
         width: 21px;
         height: 18px;
-    }
-
-    .gameStart {
-        top: 8vh;
-        font-size: 12px;
     }
 
     .startGameText {

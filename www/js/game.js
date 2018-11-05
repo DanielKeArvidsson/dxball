@@ -134,9 +134,10 @@ function loadGame() {
     if (!isRectAOutsideRectB(ball, paddle)) {
       new Audio('/audio/ballhitspaddle.mp3').play()
       ball.direction.y *= -1;
+      ball.direction.x = (ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5; 
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 20;
+      ball.speed += 40;
       updateInterface();
     }
   }
