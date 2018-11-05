@@ -18,6 +18,9 @@ body, {
         &:hover{
             transform: scale(0.8);
         }
+        &:focus {
+            outline: none;
+        }
        
 }
 
@@ -32,6 +35,9 @@ body, {
     transition: transform 0.3s;
     &:hover{
         transform: scale(0.8);
+    }
+    &:focus {
+        outline: none;
     }
 }
 
