@@ -507,8 +507,8 @@ function highscoreName() {
   $('#myModal').modal('show');
   $('#recipient-name').trigger('focus');
   $('.endScore').text(score);
- // let player = ("Your score is:" + score + "\nEnter your name:");
- // if (player === undefined || player === "") {
+  // let player = ("Your score is:" + score + "\nEnter your name:");
+  // if (player === undefined || player === "") {
    // player = "NoName";
   //}
   // postNewHighscore(player);
@@ -517,6 +517,7 @@ function highscoreName() {
     $(this).removeData('bs.modal');
   });
 };
+
 
 
 
@@ -534,6 +535,8 @@ function appendHighscores(highscores){
     i++;
   }
 }
+
+
 
 
 

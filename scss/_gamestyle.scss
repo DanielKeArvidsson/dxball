@@ -50,7 +50,7 @@
     to { transform: rotate(360deg); }
 }
   
-.game {
+.game, .game1 {
     position:relative;
     background-image:url('/images/gamebg.png');
     color: white;
@@ -59,6 +59,7 @@
     box-shadow: 0 2px 0px 0px black;
     margin:auto;
 }
+
 
 .gameStart {
     position: absolute;
