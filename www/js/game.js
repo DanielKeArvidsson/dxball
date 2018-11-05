@@ -541,10 +541,6 @@ function loadGame() {
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 // highscore
 
 $.getJSON("/json/highscore.json", appendHighscores);
