@@ -1,10 +1,10 @@
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton').hide();
 
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton').hide();
 /*
 let startCounter = 0;
 $(window).keydown(function (e) {
-  if (e.which === 13 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++;}
-  
+  if (e.which === 13 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++; }
+
 });
 */
 
@@ -21,7 +21,6 @@ let score;
 function loadGame() {
   // Main variables
   let lives;
-  let score;
   let paused;
   const bricks = [];
   const keysPressed = {};
@@ -202,6 +201,7 @@ function loadGame() {
       else {
       $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
       }
+      highscoreName();
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
@@ -318,12 +318,28 @@ function loadGame() {
         ball.$.css('left', (ball.left = 137));
         ball.$.css('top', (ball.top = 348));
       }
-      ball.direction = { x: 1, y: 1 };
-  
-      ball.width = ball.$.width();
-      ball.height = ball.$.height();
+     
+    else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
+      ball.speed = 220;
+      ball.$.css('left', (ball.left = 335));
+      ball.$.css('top', (ball.top = 420));
     }
-  
+    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
+      ball.speed = 140;
+      ball.$.css('left', (ball.left = 240));
+      ball.$.css('top', (ball.top = 335));
+    }
+    else if (window.matchMedia("(max-width: 659px)").matches) {
+      ball.speed = 100;
+      ball.$.css('left', (ball.left = 137));
+      ball.$.css('top', (ball.top = 207));
+    }
+    ball.direction = { x: 1, y: 1 };
+
+    ball.width = ball.$.width();
+    ball.height = ball.$.height();
+  }
+
 
   function spawnBricks() {
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
@@ -518,21 +534,44 @@ function loadGame() {
 }
 
 
+
 // highscore
+
+$.getJSON("/json/highscore.json", appendHighscores);
 function highscoreName() {
-  let player = prompt("Your score is:" + score + "\nEnter your name:");
-  if (player === undefined || player === "") {
-    player = "NoName";
+  $('#myModal').modal('show');
+  $('#recipient-name').trigger('focus');
+  $('.endScore').text(score);
+ // let player = ("Your score is:" + score + "\nEnter your name:");
+ // if (player === undefined || player === "") {
+   // player = "NoName";
+  //}
+  // postNewHighscore(player);
+  $.post("/add-score", { name: player, score: score }, appendHighscores);
+  $('body').on('hidden.bs.modal', '.modal', function () {
+    $(this).removeData('bs.modal');
+  });
+};
+
+
+
+
+function appendHighscores(highscores){
+
+  $('tbody').empty();
+  let i = 1;
+  for (key in highscores) {
+    let value = highscores[key];
+
+    let table = "<tr><td>"+i+"</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
+    
+    $('tbody').append(table);
+    i++;
   }
-  postNewHighscore(player);
 }
 
 
 
-function postNewHighscore(player) {
-  $.post("/add-score", {name: player, score: score}, function (responseData) {
 
-   console.log('the new highscore-list is:', responseData);
 
-  });  
-}
+

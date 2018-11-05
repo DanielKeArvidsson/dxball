@@ -1,0 +1,44 @@
+.myButton1 {
+   
+    background:url(/images/sv-flag.svg);
+    cursor:pointer;
+    border:none;
+    width:34px;
+    height:26px;
+    float:right;
+    outline: none;
+    transition: transform 0.2s;
+    &:hover{
+        transform: scale(0.8);
+    }
+   
+}
+
+.myButton2 {
+background:url(/images/us-flag.svg);
+cursor:pointer;
+border:none;
+width:34px;
+height:26px;
+float: right;
+outline: none;
+transition: transform 0.3s;
+&:hover{
+    transform: scale(0.8);
+}
+}
+
+.navbar-brand {
+    font-family: 'spacetech' !important;
+}
+
+.border-nav{
+    border-bottom:8px ridge darkred;
+}
+
+a:link, a:visited, a:hover, a:active { color: white }
+
+.navbar-toggler {
+    background-color: whitesmoke;
+
+}
