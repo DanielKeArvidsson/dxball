@@ -19,7 +19,6 @@ $(document).on('click', 'a', function(e){
   // On page load
   frontendRouter(location.pathname);
   
-  
    
   // The router (do whatever you want here)
   function frontendRouter(path){
