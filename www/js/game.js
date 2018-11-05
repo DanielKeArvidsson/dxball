@@ -498,14 +498,12 @@ function loadGame() {
     }, 1000);
   }
 
-
+}
 
 // highscore
 
 $.getJSON("/json/highscore.json", appendHighscores);
 function highscoreName() {
-
- 
   let player = prompt("Your score is:" + score + "\nEnter your name:");
   if (player === undefined || player === "") {
     player = "NoName";
@@ -531,6 +529,7 @@ function appendHighscores(highscores){
     i++;
   }
 }
-}
+
+
 
 
