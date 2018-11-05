@@ -201,13 +201,14 @@ function loadGame() {
     $('.main-text').hide();
     if (lives < 1) {      
       $('.heart3').hide();
-      if (window.matchMedia("(hover : none)").matches) {
-       
+      if (window.matchMedia("(hover : none)").matches){
+        $('.gameOverButton').show();
       }
       else {
-        $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
-        highscoreName();
+      $('.gameOverText').show();
       }
+        highscoreName();
+      
       
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
