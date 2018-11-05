@@ -505,6 +505,7 @@ function loadGame() {
 $.getJSON("/json/highscore.json", appendHighscores);
 function highscoreName() {
   $('#myModal').modal('show');
+  $('#recipient-name').trigger('focus');
   let player = prompt("Your score is:" + score + "\nEnter your name:");
   if (player === undefined || player === "") {
     player = "NoName";
