@@ -130,10 +130,27 @@ function loadGame() {
     return true;
   }
 
+  
   function collisionDetectBallAndPaddle() {
     if (!isRectAOutsideRectB(ball, paddle)) {
       new Audio('/audio/ballhitspaddle.mp3').play()
-      ball.direction.y *= -1;
+      let ballHitPad = (ball.left + ball.width / 2 - paddle.left) / paddle.width;
+      if(ballHitPad < 1/5){
+        ball.direction.y = -0.5;
+      }
+      else if(ballHitPad >= 1/5 && ballHitPad < 2/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 2/5 && ballHitPad < 3/5){
+        ball.direction.y = -1;
+      }
+      else if(ballHitPad >= 3/5 && ballHitPad < 4/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 4/5){
+        ball.direction.y = -0.5;
+      }
+      //ball.direction.y *= -1;
       ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2; 
       ball.top = paddle.top - ball.height;
       score += 5;
