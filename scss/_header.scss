@@ -1,35 +1,3 @@
-.myButton1 {
-
-    background: url(/images/sv-flag.svg);
-    cursor: pointer;
-    border: none;
-    width: 34px;
-    height: 26px;
-    float: right;
-    outline: none;
-    transition: transform 0.2s;
-
-    &:hover {
-        transform: scale(0.8);
-    }
-
-}
-
-.myButton2 {
-    background: url(/images/us-flag.svg);
-    cursor: pointer;
-    border: none;
-    width: 34px;
-    height: 26px;
-    float: right;
-    outline: none;
-    transition: transform 0.3s;
-
-    &:hover {
-        transform: scale(0.8);
-    }
-}
-
 .navbar-brand {
     font-family: 'spacetech' !important;
 }
@@ -48,4 +16,39 @@ a:active {
 .navbar-toggler {
     background-color: whitesmoke;
 
+}
+
+
+.flag-Button {
+    cursor: pointer;
+    border: none;
+    width: 34px;
+    height: 26px;
+    float: right;
+    outline: none;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: scale(0.8);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.flag-Button.svenska {
+    background-image: url(/images/sv-flag.svg);
+}
+
+.flag-Button.engelska {
+    background-image: url(/images/us-flag.svg);
+}
+
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
