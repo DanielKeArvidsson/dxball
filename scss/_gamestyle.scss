@@ -105,10 +105,16 @@
     text-align: center;
 }
 
-.gameStart {
-    display: none;
+.powerup {
+    color:yellow;
+    border:3px solid yellow;
+    border-radius:20px;
     position: absolute;
-    width: 100%;
+    top: 1px;
+    left:200px;
+    z-index:2;
+    height:32px;
+    width:66px;
     text-align: center;
 }
 
