@@ -1,14 +1,23 @@
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup').hide();
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo').hide();
 
+let playCounter = 0;
 
 $('.playButton').click(function () {
   loadGame();
   $('.playButton').hide();
   $('.startGameText').hide();
+  playCounter++;
 });
 
-
+$(window).keypress(function (e) {
+  if (e.which === 13 && playCounter === 0) {
+    loadGame();
+    $('.playButton').hide();
+    $('.startGameText').hide();
+    playCounter++;
+  }
+});
 
 let score;
 
@@ -26,8 +35,12 @@ function loadGame() {
   let gameBorders = loadGameBorders();
   let timeOfImpact = 0;
   const powerup = {};
+  const powerupTwo = {};
   let powerCount = 0;
+  let powerCountTwo = 0;
   let powerRand;
+  let powerRandBrickOne;
+  //let powerRandBrickTwo;
 
   $('.score, .heart1, .heart2, .heart3').show();
 
@@ -38,7 +51,9 @@ function loadGame() {
 
   // Reset starting variables etc
   function startNewGame() {
-    powerRand = Math.floor(Math.random() * Math.floor(850));
+    powerRand = Math.floor(Math.random() * Math.floor(gameBorders.width-70));
+    powerRandBrickTwo = Math.floor(Math.random() * 21) + 10;
+    powerRandBrickOne = Math.floor(Math.random() * 20) + 31;
     new Audio('/audio/poweron.wav').play()
     $('.heart1').show();
     $('.heart2').show();
@@ -67,6 +82,7 @@ function loadGame() {
     if (paused) { return; }
 
     movePower();
+    movePowerTwo();
     movePaddle(deltaTime);
     moveBall(deltaTime);
   }
@@ -76,18 +92,38 @@ function loadGame() {
     powerup.left = $('.powerup').position().left;
     powerup.height = $('.powerup').height();
     powerup.width = $('.powerup').width();
-    if (bricks.length === 30) {
+    if (bricks.length === powerRandBrickOne) {
       $('.powerup').show();
-      $('.powerup').animate({top: '590px'}, {duration:4000});
+      $('.powerup').animate({top: gameBorders.height}, {duration:5000});
     }
     if (!isRectAOutsideRectB(powerup, paddle) && powerCount === 0) {
       $('.powerup').hide();
       new Audio('/audio/powerup.wav').play()
-      score += 200;
+      score += 400;
       powerCount++;
     }
-    if (powerup.top === 590) {
+    if (powerup.top > gameBorders.height-10) {
       $('.powerup').hide();
+    }
+  }
+
+  function movePowerTwo() {
+    powerupTwo.top = $('.powerupTwo').position().top;
+    powerupTwo.left = $('.powerupTwo').position().left;
+    powerupTwo.height = $('.powerupTwo').height();
+    powerupTwo.width = $('.powerupTwo').width();
+    if (bricks.length === powerRandBrickTwo) {
+      $('.powerupTwo').show();
+      $('.powerupTwo').animate({top: gameBorders.height}, {duration:4000});
+    }
+    if (!isRectAOutsideRectB(powerupTwo, paddle) && powerCountTwo === 0) {
+      $('.powerupTwo').hide();
+      new Audio('/audio/powerup.wav').play()
+      score += 800;
+      powerCountTwo++;
+    }
+    if (powerupTwo.top > gameBorders.height-10) {
+      $('.powerupTwo').hide();
     }
   }
 
