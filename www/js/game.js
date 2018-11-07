@@ -43,7 +43,7 @@ function loadGame() {
     $('.heart1').show();
     $('.heart2').show();
     $('.heart3').show();
-    $('.powerup').stop(true).css({'top': 0, 'left': powerRand});
+    $('.powerup').stop(true).css({ 'top': 0, 'left': powerRand });
     powerCount = 0;
     lives = 3;
     score = 0;
@@ -78,7 +78,7 @@ function loadGame() {
     powerup.width = $('.powerup').width();
     if (bricks.length === 30) {
       $('.powerup').show();
-      $('.powerup').animate({top: '590px'}, {duration:4000});
+      $('.powerup').animate({ top: '590px' }, { duration: 4000 });
     }
     if (!isRectAOutsideRectB(powerup, paddle) && powerCount === 0) {
       $('.powerup').hide();
@@ -143,7 +143,7 @@ function loadGame() {
       new Audio('/audio/ballhitsbrick.mp3').play()
       ball.top = 0;
       ball.direction.y *= -1;
-    } else if (ball.top + ball.height > gameBorders.height +10) {
+    } else if (ball.top + ball.height > gameBorders.height + 10) {
       new Audio('/audio/powerdown.wav').play()
       loseLife();
       return false;
@@ -151,28 +151,28 @@ function loadGame() {
     return true;
   }
 
-  
+
   function collisionDetectBallAndPaddle() {
     if (!isRectAOutsideRectB(ball, paddle)) {
       new Audio('/audio/ballhitspaddle.mp3').play()
       let ballHitPad = (ball.left + ball.width / 2 - paddle.left) / paddle.width;
-      if(ballHitPad < 1/5){
+      if (ballHitPad < 1 / 5) {
         ball.direction.y = -0.5;
       }
-      else if(ballHitPad >= 1/5 && ballHitPad < 2/5){
+      else if (ballHitPad >= 1 / 5 && ballHitPad < 2 / 5) {
         ball.direction.y = -0.8;
       }
-      else if(ballHitPad >= 2/5 && ballHitPad < 3/5){
+      else if (ballHitPad >= 2 / 5 && ballHitPad < 3 / 5) {
         ball.direction.y = -0.9;
       }
-      else if(ballHitPad >= 3/5 && ballHitPad < 4/5){
+      else if (ballHitPad >= 3 / 5 && ballHitPad < 4 / 5) {
         ball.direction.y = -0.8;
       }
-      else if(ballHitPad >= 4/5){
+      else if (ballHitPad >= 4 / 5) {
         ball.direction.y = -0.5;
       }
       //ball.direction.y *= -1;
-      ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2; 
+      ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2;
       ball.top = paddle.top - ball.height;
       score += 5;
       ball.speed += 15;
@@ -237,28 +237,37 @@ function loadGame() {
   function updateInterface() {
     $('.score span').text((score + '').padStart(5, '0'));
     $('.main-text').hide();
-    if (lives < 1) {      
+    if (lives < 1) {
       $('.heart3').hide();
-      if (window.matchMedia("(hover : none)").matches){
+      if (window.matchMedia("(hover : none)").matches) {
         $('.gameOverButton').show();
       }
       else {
-      $('.gameOverText').show();
-      }
+        $('.gameOverText').show();
+
         highscoreName();
-        $('#submit-new-score').on('click', function () {
-          window.location.reload();
+
+        $('#myModal').bind('keypress', function (e) {
+          if (e.keyCode == 13) {
+            $('#submit-new-score').trigger('click');
+            window.location=relod();
+          }
         });
-      
+
+      }
+
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
 
-      
-        highscoreName();
-        $('#submit-new-score').on('click', function () {
-          window.location.reload();
-        });
+      highscoreName();
+      $('#myModal').bind('keypress', function (e) {
+        if (e.keyCode == 13) {
+          $('#submit-new-score').trigger('click');
+          window.location=relod();
+        }
+      });
+
     } else if (paused) {
       if (window.matchMedia("(hover : none)").matches) {
         $('.mobilButton').show();
@@ -272,14 +281,22 @@ function loadGame() {
     $('.main-text').fadeIn(500);
   }
 
+  window.modalIsOpen = false;
   function onEnterPress() {
+
+    // Do nothing if a modal is open
+    if (window.modalIsOpen) { return; }
+
+    // Do nothing if not on /breakout-gamePlay page
+    if(location.pathname !== "/breakout-gamePlay"){ return; }
+
     if (keysPressed.enter) { return; }
     keysPressed.enter = true;
 
     if (lives > 0) {
       paused = !paused;
     } else {
-      
+
       startNewGame();
 
     }
@@ -452,7 +469,7 @@ function loadGame() {
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
-
+break;
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -483,7 +500,7 @@ function loadGame() {
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
-
+break;
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -515,7 +532,7 @@ function loadGame() {
     prevLeft = brickCSS.left;
     for (let color of colorsUpTwo) {
       const brick = createBrick(prevLeft, prevTopOverTwo, brickCSS.width, brickCSS.height, color, size);
-
+break
       bricks.push(brick);
       $('.game').append(brick.$);
 
@@ -584,24 +601,28 @@ $.getJSON("/json/highscore.json", appendHighscores);
 
 
 $('#submit-new-score').on('click', function () {
-  
+  window.modalIsOpen = false;
+
   $.post("/add-score",
     {
       name: $('#recipient-name').val() || 'NoName',
       score: score
     }, appendHighscores)
 
-    
+
   $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
+
   });
-  { $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600); }
-  window.history.pushState('breakout',"breakout-highscore","/breakout-highscore");
+
+  $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600);
+  window.history.pushState("", "", "/breakout-highscore");
 });
 
 
 
 function highscoreName() {
+  window.modalIsOpen = true;
   $('#myModal').modal('show');
   $('#recipient-name').val('').trigger('focus');
   $('.endScore').text(score);
@@ -611,7 +632,7 @@ function highscoreName() {
 
 
 function appendHighscores(highscores) {
-
+  window.modalIsOpen = false;
   $('tbody').empty();
   let i = 1;
   for (key in highscores) { 
@@ -625,7 +646,10 @@ function appendHighscores(highscores) {
 }
 
 
-
+// $(window).resize(function(){
+//   let c = confirm('Varning! Du resizar skärmen, spelet måste tyvärr laddas om för att fungera');
+//   if(c){ location.reload(); }
+// })
 
 
 
