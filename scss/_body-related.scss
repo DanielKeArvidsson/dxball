@@ -8,10 +8,21 @@ main {
     background-color: $black;
 }
 
+.facebook , .twitter{
+    margin-right: 10px;
+    max-width: 45px;
+    max-height: 45px;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
 @font-face {
     font-family: 'spacetech';
     src: url('/fonts/Spacetech.ttf')
 }
+
+
 
 .about {
     margin-top: 3px;
@@ -49,6 +60,22 @@ main {
 .en {
     display: none;
 }
+
+
+
+
+
+
+
+
+.highScoreBox {
+    background-image: url('/images/gameContBg.jpg');
+    background-size: cover;
+    height: 76vh;
+}
+
+
+
 
 
 

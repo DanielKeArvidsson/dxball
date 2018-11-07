@@ -1,0 +1,3 @@
+# Generella egler för spindlarna
+User-agent: *
+Disallow:

@@ -60,10 +60,10 @@
         transform: rotate(360deg);
     }
 }
-
-.game {
-    position: relative;
-    background-image: url('/images/gamebg.png');
+  
+.game, .game1 {
+    position:relative;
+    background-image:url('/images/gamebg.png');
     color: white;
     border: 15px ridge darkred;
     border-bottom: 5px solid gray;
@@ -73,11 +73,28 @@
     margin: auto;
 }
 
+.bottomfire1{
+    background-image: url(/images/bottomfire.gif);
+    background-size: 10% 23px; 
+    position: absolute;
+    border-radius: 50px;
+    width: calc(100% - 33px);
+    
+    height: 23px;
+    top: 295px; 
+
+}
+
+
+
 .bottomfire {
     background-image: url(/images/bottomfire.gif);
     position: absolute;
     border-radius: 50px;
 }
+
+
+
 
 .playButton {
     position: absolute;
@@ -184,7 +201,7 @@
 
     }
 
-    .bottomfire {
+    .bottomfire{
         background-size: 93px 20px;
         height: 20px;
         width: 880px;
