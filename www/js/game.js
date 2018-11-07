@@ -1,12 +1,6 @@
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText').hide();
-/*
-let startCounter = 0;
-$(window).keydown(function (e) {
-  if (e.which === 13 && startCounter === 0) { loadGame(); $('.playButton').hide(); $('.startGameText').hide(); startCounter++; }
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup').hide();
 
-});
-*/
 
 $('.playButton').click(function () {
   loadGame();
@@ -26,11 +20,14 @@ function loadGame() {
   const bricks = [];
   const keysPressed = {};
   const initialPaddleSpeed = 450;
-  const initialBallSpeed = 320;
+  const initialBallSpeed = 450;
   const paddle = {};
   const ball = {};
   let gameBorders = loadGameBorders();
   let timeOfImpact = 0;
+  const powerup = {};
+  let powerCount = 0;
+  let powerRand;
 
   $('.score, .heart1, .heart2, .heart3').show();
 
@@ -41,10 +38,13 @@ function loadGame() {
 
   // Reset starting variables etc
   function startNewGame() {
+    powerRand = Math.floor(Math.random() * Math.floor(850));
     new Audio('/audio/poweron.wav').play()
     $('.heart1').show();
     $('.heart2').show();
     $('.heart3').show();
+    $('.powerup').stop(true).css({'top': 0, 'left': powerRand});
+    powerCount = 0;
     lives = 3;
     score = 0;
     paused = false;
@@ -66,8 +66,29 @@ function loadGame() {
   function updateGame(deltaTime) {
     if (paused) { return; }
 
+    movePower();
     movePaddle(deltaTime);
     moveBall(deltaTime);
+  }
+
+  function movePower() {
+    powerup.top = $('.powerup').position().top;
+    powerup.left = $('.powerup').position().left;
+    powerup.height = $('.powerup').height();
+    powerup.width = $('.powerup').width();
+    if (bricks.length === 30) {
+      $('.powerup').show();
+      $('.powerup').animate({top: '590px'}, {duration:4000});
+    }
+    if (!isRectAOutsideRectB(powerup, paddle) && powerCount === 0) {
+      $('.powerup').hide();
+      new Audio('/audio/powerup.wav').play()
+      score += 200;
+      powerCount++;
+    }
+    if (powerup.top === 590) {
+      $('.powerup').hide();
+    }
   }
 
   function movePaddle(deltaTime) {
@@ -130,14 +151,31 @@ function loadGame() {
     return true;
   }
 
+  
   function collisionDetectBallAndPaddle() {
     if (!isRectAOutsideRectB(ball, paddle)) {
       new Audio('/audio/ballhitspaddle.mp3').play()
-      ball.direction.y *= -1;
-      ball.direction.x = (ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5; 
+      let ballHitPad = (ball.left + ball.width / 2 - paddle.left) / paddle.width;
+      if(ballHitPad < 1/5){
+        ball.direction.y = -0.5;
+      }
+      else if(ballHitPad >= 1/5 && ballHitPad < 2/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 2/5 && ballHitPad < 3/5){
+        ball.direction.y = -0.9;
+      }
+      else if(ballHitPad >= 3/5 && ballHitPad < 4/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 4/5){
+        ball.direction.y = -0.5;
+      }
+      //ball.direction.y *= -1;
+      ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2; 
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 40;
+      ball.speed += 15;
       updateInterface();
     }
   }
@@ -318,41 +356,26 @@ function loadGame() {
       ball.$.css('top', (ball.top = 545));
     }
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
-      ball.speed = 220;
+      ball.speed = 320;
       ball.$.css('left', (ball.left = 335));
       ball.$.css('top', (ball.top = 425));
     }
     else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
-      ball.speed = 500;
+      ball.speed = 800;
       ball.$.css('left', (ball.left = 355));
       ball.$.css('top', (ball.top = 1110));
     }
     else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
-      ball.speed = 180;
+      ball.speed = 280;
       ball.$.css('left', (ball.left = 290));
       ball.$.css('top', (ball.top = 370));
     }
     else if (window.matchMedia("(max-width: 659px)").matches) {
-      ball.speed = 140;
+      ball.speed = 180;
       ball.$.css('left', (ball.left = 137));
       ball.$.css('top', (ball.top = 348));
     }
 
-    else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
-      ball.speed = 220;
-      ball.$.css('left', (ball.left = 335));
-      ball.$.css('top', (ball.top = 420));
-    }
-    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
-      ball.speed = 140;
-      ball.$.css('left', (ball.left = 240));
-      ball.$.css('top', (ball.top = 335));
-    }
-    else if (window.matchMedia("(max-width: 659px)").matches) {
-      ball.speed = 100;
-      ball.$.css('left', (ball.left = 137));
-      ball.$.css('top', (ball.top = 207));
-    }
     ball.direction = { x: 1, y: 1 };
 
     ball.width = ball.$.width();
@@ -600,6 +623,8 @@ function appendHighscores(highscores) {
     i++;
   }
 }
+
+
 
 
 
