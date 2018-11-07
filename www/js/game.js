@@ -607,14 +607,14 @@ function highscoreName() {
   $('.endScore').text(score);
 };
 
-
+// dkflksdkklfjsdklf
 
 
 function appendHighscores(highscores) {
 
   $('tbody').empty();
   let i = 1;
-  for (key in highscores) {
+  for (key in highscores) { 
     let value = highscores[key];
 
     let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
