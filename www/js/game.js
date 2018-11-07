@@ -1,14 +1,8 @@
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton').hide();
-/*
-let startCounter = 0;
-$(window).keydown(function (e) {
-  if (e.which === 13 && startCounter === 0) { loadGame(); $('.gameStart').hide(); startCounter++; }
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup').hide();
 
-});
-*/
 
-$('.playButton').click (function(){
+$('.playButton').click(function () {
   loadGame();
   $('.playButton').hide();
   $('.startGameText').hide();
@@ -26,11 +20,14 @@ function loadGame() {
   const bricks = [];
   const keysPressed = {};
   const initialPaddleSpeed = 450;
-  const initialBallSpeed = 320;
+  const initialBallSpeed = 450;
   const paddle = {};
   const ball = {};
   let gameBorders = loadGameBorders();
   let timeOfImpact = 0;
+  const powerup = {};
+  let powerCount = 0;
+  let powerRand;
 
   $('.score, .heart1, .heart2, .heart3').show();
 
@@ -41,10 +38,13 @@ function loadGame() {
 
   // Reset starting variables etc
   function startNewGame() {
+    powerRand = Math.floor(Math.random() * Math.floor(850));
     new Audio('/audio/poweron.wav').play()
     $('.heart1').show();
     $('.heart2').show();
     $('.heart3').show();
+    $('.powerup').stop(true).css({'top': 0, 'left': powerRand});
+    powerCount = 0;
     lives = 3;
     score = 0;
     paused = false;
@@ -66,8 +66,29 @@ function loadGame() {
   function updateGame(deltaTime) {
     if (paused) { return; }
 
+    movePower();
     movePaddle(deltaTime);
     moveBall(deltaTime);
+  }
+
+  function movePower() {
+    powerup.top = $('.powerup').position().top;
+    powerup.left = $('.powerup').position().left;
+    powerup.height = $('.powerup').height();
+    powerup.width = $('.powerup').width();
+    if (bricks.length === 30) {
+      $('.powerup').show();
+      $('.powerup').animate({top: '590px'}, {duration:4000});
+    }
+    if (!isRectAOutsideRectB(powerup, paddle) && powerCount === 0) {
+      $('.powerup').hide();
+      new Audio('/audio/powerup.wav').play()
+      score += 200;
+      powerCount++;
+    }
+    if (powerup.top === 590) {
+      $('.powerup').hide();
+    }
   }
 
   function movePaddle(deltaTime) {
@@ -122,7 +143,7 @@ function loadGame() {
       new Audio('/audio/ballhitsbrick.mp3').play()
       ball.top = 0;
       ball.direction.y *= -1;
-    } else if (ball.top + ball.height > gameBorders.height) {
+    } else if (ball.top + ball.height > gameBorders.height +10) {
       new Audio('/audio/powerdown.wav').play()
       loseLife();
       return false;
@@ -130,13 +151,31 @@ function loadGame() {
     return true;
   }
 
+  
   function collisionDetectBallAndPaddle() {
     if (!isRectAOutsideRectB(ball, paddle)) {
       new Audio('/audio/ballhitspaddle.mp3').play()
-      ball.direction.y *= -1;
+      let ballHitPad = (ball.left + ball.width / 2 - paddle.left) / paddle.width;
+      if(ballHitPad < 1/5){
+        ball.direction.y = -0.5;
+      }
+      else if(ballHitPad >= 1/5 && ballHitPad < 2/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 2/5 && ballHitPad < 3/5){
+        ball.direction.y = -0.9;
+      }
+      else if(ballHitPad >= 3/5 && ballHitPad < 4/5){
+        ball.direction.y = -0.8;
+      }
+      else if(ballHitPad >= 4/5){
+        ball.direction.y = -0.5;
+      }
+      //ball.direction.y *= -1;
+      ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2; 
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 20;
+      ball.speed += 15;
       updateInterface();
     }
   }
@@ -147,7 +186,7 @@ function loadGame() {
       if (!isRectAOutsideRectB(ball, brick)) {
         new Audio('/audio/ballhitsbrick.mp3').play()
         let now = new Date();
-        if (now - timeOfImpact > 5) {
+        if (now - timeOfImpact > 10) {
           timeOfImpact = now;
           if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
             // If it bounced on the side of the brick
@@ -192,28 +231,38 @@ function loadGame() {
     return (Math.abs(direction) < Math.PI / 4 || Math.abs(direction) > Math.PI / 4 * 3) ? 'horizontal' : 'vertical';
   }
 
+
+
+
   function updateInterface() {
     $('.score span').text((score + '').padStart(5, '0'));
     $('.main-text').hide();
-    if (lives < 1) {
+    if (lives < 1) {      
       $('.heart3').hide();
       if (window.matchMedia("(hover : none)").matches){
         $('.gameOverButton').show();
       }
       else {
-      $('.main-text').text('GAME OVER - PRESS ENTER TO PLAY AGAIN');
+      $('.gameOverText').show();
       }
-      highscoreName();
+        highscoreName();
+      
+      
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       $('.main-text').text('CONGRATULATIONS - YOU WON');
-      highscoreName();
+
+      
+        highscoreName();
+        $('#submit-new-score').on('click', function () {
+          window.location.reload();
+        });
     } else if (paused) {
-      if (window.matchMedia("(hover : none)").matches){
-          $('.mobilButton').show();
+      if (window.matchMedia("(hover : none)").matches) {
+        $('.mobilButton').show();
       }
-      else{
-      $('.main-text').text('PAUSED - press ENTER to continue...');
+      else {
+        $('.main-text').text('PAUSED - press ENTER to continue...');
       }
     } else {
       $('.main-text').text('');
@@ -228,10 +277,13 @@ function loadGame() {
     if (lives > 0) {
       paused = !paused;
     } else {
+      
       startNewGame();
+
     }
     $('.mobilButton').hide();
     $('.gameOverButton').hide();
+    $('.gameOverText').hide();
     updateInterface();
   }
 
@@ -302,41 +354,26 @@ function loadGame() {
       ball.$.css('top', (ball.top = 545));
     }
     else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
-      ball.speed = 220;
+      ball.speed = 320;
       ball.$.css('left', (ball.left = 335));
       ball.$.css('top', (ball.top = 425));
     }
     else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: portrait)").matches) {
-      ball.speed = 500;
+      ball.speed = 800;
       ball.$.css('left', (ball.left = 355));
       ball.$.css('top', (ball.top = 1110));
     }
     else if (window.matchMedia("(max-width: 992px) and (min-width: 660px) and (orientation: landscape)").matches) {
-      ball.speed = 180;
+      ball.speed = 280;
       ball.$.css('left', (ball.left = 290));
       ball.$.css('top', (ball.top = 370));
     }
     else if (window.matchMedia("(max-width: 659px)").matches) {
-      ball.speed = 140;
+      ball.speed = 180;
       ball.$.css('left', (ball.left = 137));
       ball.$.css('top', (ball.top = 348));
     }
 
-    else if (window.matchMedia("(max-width: 1200px) and (min-width: 993px)").matches) {
-      ball.speed = 220;
-      ball.$.css('left', (ball.left = 335));
-      ball.$.css('top', (ball.top = 420));
-    }
-    else if (window.matchMedia("(max-width: 992px) and (min-width: 660px)").matches) {
-      ball.speed = 140;
-      ball.$.css('left', (ball.left = 240));
-      ball.$.css('top', (ball.top = 335));
-    }
-    else if (window.matchMedia("(max-width: 659px)").matches) {
-      ball.speed = 100;
-      ball.$.css('left', (ball.left = 137));
-      ball.$.css('top', (ball.top = 207));
-    }
     ball.direction = { x: 1, y: 1 };
 
     ball.width = ball.$.width();
@@ -389,7 +426,7 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-      
+
     }
 
     const colorsUpThree = [
@@ -413,7 +450,7 @@ function loadGame() {
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
-      
+
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -444,7 +481,7 @@ function loadGame() {
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
-      
+
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -522,7 +559,7 @@ function loadGame() {
       }, updateSpeed);
     }, 1000);
   }
-  $('.mobilButton').click (function(){
+  $('.mobilButton').click(function () {
     if (lives > 0) {
       paused = false;
     } else {
@@ -531,35 +568,41 @@ function loadGame() {
     $('.mobilButton').hide();
   });
 
-  $('.gameOverButton').click (function(){
-    
-      startNewGame();
-    
+  $('.gameOverButton').click(function () {
+
+    startNewGame();
+
     $('.gameOverButton').hide();
   });
 }
-
-
 
 // highscore
 
 $.getJSON("/json/highscore.json", appendHighscores);
 
 
+$('#submit-new-score').on('click', function () {
+  
+  $.post("/add-score",
+    {
+      name: $('#recipient-name').val() || 'NoName',
+      score: score
+    }, appendHighscores)
 
-function highscoreName() {
-  $('#myModal').modal('show');
-  $('#recipient-name').trigger('focus');
-  $('.endScore').text(score);
-  // let player = ("Your score is:" + score + "\nEnter your name:");
-  // if (player === undefined || player === "") {
-   // player = "NoName";
-  //}
-  // postNewHighscore(player);
-  $.post("/add-score", { name: player, score: score }, appendHighscores);
+    
   $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
   });
+  { $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600); }
+  window.history.pushState('',"highscore","/highscore");
+});
+
+
+
+function highscoreName() {
+  $('#myModal').modal('show');
+  $('#recipient-name').val('').trigger('focus');
+  $('.endScore').text(score);
 };
 
 

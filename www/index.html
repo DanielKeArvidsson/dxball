@@ -38,8 +38,8 @@
 
         </ul>
 
-        <button class="myButton1 svenska mr-2 rounded clearfix"></button>
-        <button class="myButton2 engelska rounded clearfix"></button>
+        <button class="flag-Button svenska mr-1 rounded clearfix"></button>
+        <button class="flag-Button engelska rounded clearfix"></button>
 
       </div>
     </nav>
@@ -76,30 +76,36 @@
             <div class="lives"><img class="heart1" src="/images/heart.png" height="30" width="30"> <img class="heart2"
                 src="/images/heart.png" height="30" width="30">
               <img class="heart3" src="/images/heart.png" height="30" width="30"></div>
-            <div class="gameStart"><br>Press Enter to start game</div>
             <div class="startGameText">breakout</div>
             <div class="ball"></div>
             <div class="paddle"></div>
+            <div class="gameOverText">GAME OVER - press enter to play again</div>
             <div class="gameOverButton">GAME OVER<br>click to play again</div>
             <div class="mobilButton">Paused - click to continue...</div>
             <div class="playButton">Play Game</div>
             <div class="main-text"></div>
-
-            <div class="arrowleft">
-              <img src="/images/arrowleft.png" class="arrowleftimage">
-            </div>
-
-            <div class="arrowright">
-              <img src="/images/arrowright.png" class="arrowrightimage">
-            </div>
-
+            <div class="powerup">200</div>
+            <div class="bottomfire"></div>
           </div>
         </div>
-        <div class="modal fade-scale" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog bg-dark border-danger" role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-dark">
-                <h4 class="modal-title bg-dark text-light" id="myModalLabel">GAME OVER</h4>
+      </div>
+
+            <div class="modal fade-scale" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog bg-dark border-danger" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                      <h4 class="modal-title bg-dark text-light" id="myModalLabel">GAME OVER</h4>
+                    </div>
+                    <div class="modal-body bg-dark text-light">
+                      <p>Your score is: <span class="endScore"></span> </p><br>
+                      <p>Please enter your name below</p>
+                      <input type="text" class="form-control bg-dark text-light" id="recipient-name">
+                    </div>
+                    <div class="modal-footer bg-dark">
+                      <button type="button" id="submit-new-score" class="btn btn-secondary" data-dismiss="modal">Save changes</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="modal-body bg-dark text-light">
                 <p>Your score is: <span class="endScore"></span> </p><br>
@@ -123,9 +129,19 @@
           </div>
         </div>
       </div>
+      </div>
+      </div>
+      </div>
+      <div class="arrowleft">
+        <img src="/images/arrowleft.png" class="arrowleftimage">
+      </div>
+
+      <div class="arrowright">
+        <img src="/images/arrowright.png" class="arrowrightimage">
+      </div>
+      </div>
+      </div>
     </section>
-
-
 
     <section class="h-100 history p-4">
       <div class="container-fluid">
