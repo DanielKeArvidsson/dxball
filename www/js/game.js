@@ -469,7 +469,7 @@ function loadGame() {
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
-break;
+
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -500,7 +500,7 @@ break;
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
-break;
+
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -532,7 +532,7 @@ break;
     prevLeft = brickCSS.left;
     for (let color of colorsUpTwo) {
       const brick = createBrick(prevLeft, prevTopOverTwo, brickCSS.width, brickCSS.height, color, size);
-break
+
       bricks.push(brick);
       $('.game').append(brick.$);
 
