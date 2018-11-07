@@ -15,7 +15,7 @@
 "startText": {
     "sv": [
       {
-        "startInfo": "<h2>Välkomna till <span class=\"breaktext\"> breakout <\/span> av Grupp 1</h2><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
+        "startInfo": "<h1>Spela <span class=\"breaktext\"> breakout <\/span> av Grupp 1</h1><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
       }
     ]
   },
@@ -32,10 +32,10 @@
         "adressP": "<p class=\"mb-0\" >Nordenskiöldsgatan 13 <br> 21119 Malmö<\/p>"
         },
         {
-        "phoneP": "<p class=\"mb-0\">Tel växel: <a href=\"tel:0401234567\">0401234567<\/a> <br \/> Mobil: <a href=\"tel:073-234 56 78\">073-234 56 78<\/a><\/p>"
+        "phoneP": "<p class=\"mb-0\">Tel växel: <a href=\"tel:0401234567\">0401234567<\/a><\/p>"
         },
         {
-        "emailP": "<p class=\"mb-0\">info@grupp1.com <\/p>"
+        "emailP": "<p class=\"mb-0\">Info@grupp1.com <\/p>"
         }
     ]
     }

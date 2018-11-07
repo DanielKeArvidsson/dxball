@@ -208,7 +208,9 @@ function loadGame() {
       $('.gameOverText').show();
       }
         highscoreName();
-      
+        $('#submit-new-score').on('click', function () {
+          window.location.reload();
+        });
       
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
@@ -571,7 +573,7 @@ $('#submit-new-score').on('click', function () {
     $(this).removeData('bs.modal');
   });
   { $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600); }
-  window.history.pushState('',"highscore","/highscore");
+  window.history.pushState('breakout',"breakout-highscore","/breakout-highscore");
 });
 
 
