@@ -63,13 +63,21 @@ main {
 
 
 
-.highScoreBox{
 
-background-image: url('/images/gameContBg.jpg');
-min-height: 600px;
-background-size: cover;
 
+
+
+
+.highScoreBox {
+    background-image: url('/images/gameContBg.jpg');
+    background-size: cover;
+    height: 76vh;
 }
+
+
+
+
+
 
 picture>a>img {
     max-width: 100%;
