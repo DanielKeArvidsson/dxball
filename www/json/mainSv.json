@@ -14,6 +14,37 @@
             "startInfo": "<h1>Spela <span class=\"breaktext\"> breakout <\/span> av Grupp 1</h1><p>Tryck på bilderna nedanför för att prova några andra versioner av spelet.</p>"
         }]
     },
+    "gameOverText": {
+        "sv":[{
+            "gameOverText": "<p>GAME OVER - tryck ENTER för att spela igen<p>"
+        }]
+    },
+    "gameOverTextButton": {
+        "sv":[{
+            "gameOverButton": "<p>GAME OVER - klicka för att spela igen<p>"
+        }]
+    },
+    "pausedText": {
+        "sv":[{
+            "mobilButton": "<p>Pausad - klicka för att fortsätta...<p>"
+        }]
+    },
+    "winText": {
+        "sv":[{
+            "winRestart": "<p>Klicka för att spela igen<p>"
+        }]
+    },
+    "playButton": {
+        "sv":[{
+            "playButton": "<p>Spela spel<p>"
+        }]
+    },
+    "mainText": {
+        "sv":[{
+            "main-text": "<p>PAUSAT - tryck ENTER för att fortsätta... <p>"
+        }]
+    },
+    
     "textHistorySv": {
         "sv": [{
             "theGame": "<h2>historia om breakout</h2><p>Spelet breakout är ett arkardspel skapat av Atari som släpptes 1976. Breakout går ut på att man ska få en boll att studsa på en paddel som man kan flytta på, med hjälp av paddeln ska man få bollen att träffa brickor som täcker den övre delen av skärmen.<\/p> <p class=\"para2\"> När bollen träffar en bricka så studsar bollen på den och brickan försvinner, missar man att få bollen att studsa på paddeln så är spelet över. Spelet är inspirerat av spelet Pong som kom 1972 även det skapat av Atari. Både Steve Jobs och Steve Wozniak var med och skapade spelet och Breakout var bas och inspiration till vissa delar av Apple II.<\/p>"
