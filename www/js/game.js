@@ -23,6 +23,16 @@ $(window).keypress(function (e) {
   }
 });
 
+function showStartAgain(){
+  $('.main-text').hide();
+  if (window.matchMedia("(hover : none)").matches) {
+    $('.gameOverButton').show();
+  }
+  else {
+    $('.gameOverText').show();
+  }
+}
+
 let score;
 
 function loadGame() {
