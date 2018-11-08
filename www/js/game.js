@@ -14,6 +14,7 @@ $('.playButton').click(function () {
 });
 
 $(window).keypress(function (e) {
+  if (location.pathname !== "/breakout-gamePlay") { return; }
   if (e.which === 13 && playCounter === 0) {
     loadGame();
     $('.playButton').hide();
@@ -23,6 +24,16 @@ $(window).keypress(function (e) {
 });
 
 let score;
+
+function showStartAgain(){
+  $('.main-text').empty();
+  if (window.matchMedia("(hover : none)").matches) {
+    $('.gameOverButton').show();
+  }
+  else {
+    $('.gameOverText').show();
+  }
+}
 
 
 function loadGame() {
@@ -53,8 +64,8 @@ function loadGame() {
   startNewGame();
 
   // Reset starting variables etc
-  function startNewGame() {
-    powerRand = Math.floor(Math.random() * Math.floor(gameBorders.width-70));
+  function startNewGame() { 
+    powerRand = Math.floor(Math.random() * Math.floor(gameBorders.width - 70));
     powerRandBrickTwo = Math.floor(Math.random() * 21) + 10;
     powerRandBrickOne = Math.floor(Math.random() * 20) + 31;
     new Audio('/audio/poweron.wav').play()
@@ -97,7 +108,7 @@ function loadGame() {
     powerup.width = $('.powerup').width();
     if (bricks.length === powerRandBrickOne) {
       $('.powerup').show();
-      $('.powerup').animate({top: gameBorders.height}, {duration:5000});
+      $('.powerup').animate({ top: gameBorders.height }, { duration: 5000 });
     }
     if (!isRectAOutsideRectB(powerup, paddle) && powerCount === 0) {
       $('.powerup').hide();
@@ -105,7 +116,7 @@ function loadGame() {
       score += 400;
       powerCount++;
     }
-    if (powerup.top > gameBorders.height-10) {
+    if (powerup.top > gameBorders.height - 10) {
       $('.powerup').hide();
     }
   }
@@ -117,7 +128,7 @@ function loadGame() {
     powerupTwo.width = $('.powerupTwo').width();
     if (bricks.length === powerRandBrickTwo) {
       $('.powerupTwo').show();
-      $('.powerupTwo').animate({top: gameBorders.height}, {duration:4000});
+      $('.powerupTwo').animate({ top: gameBorders.height }, { duration: 4000 });
     }
     if (!isRectAOutsideRectB(powerupTwo, paddle) && powerCountTwo === 0) {
       $('.powerupTwo').hide();
@@ -125,7 +136,7 @@ function loadGame() {
       score += 800;
       powerCountTwo++;
     }
-    if (powerupTwo.top > gameBorders.height-10) {
+    if (powerupTwo.top > gameBorders.height - 10) {
       $('.powerupTwo').hide();
     }
   }
@@ -271,40 +282,33 @@ function loadGame() {
   }
 
 
-
-
   function updateInterface() {
     $('.score span').text((score + '').padStart(5, '0'));
     $('.main-text').hide();
     if (lives < 1) {
       $('.heart3').hide();
-      if (window.matchMedia("(hover : none)").matches) {
-        $('.gameOverButton').show();
-      }
-      else {
-        $('.gameOverText').show();
+      
+      highscoreName();
+      $('#myModal').bind('keypress', function (e) {
+        if (e.keyCode == 13) {
+          $('#submit-new-score').trigger('click');
 
-        highscoreName();
-
-        $('#myModal').bind('keypress', function (e) {
-          if (e.keyCode == 13) {
-            $('#submit-new-score').trigger('click');
-            window.location=relod();
-          }
-        });
-
-      }
+        }
+      });
 
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
       
       $('.winRestart').show();
       highscoreName();
+      
       $('#myModal').bind('keypress', function (e) {
         if (e.keyCode == 13) {
           $('#submit-new-score').trigger('click');
-          window.location=relod();
         }
+        $('#submit-new-score').on('click',function(){
+          window.location.reload();
+        })
       });
 
     } else if (paused) {
@@ -320,16 +324,16 @@ function loadGame() {
     $('.main-text').fadeIn(500);
   }
 
-  window.modalIsOpen = false;
-  function onEnterPress() {
 
+  function onEnterPress() {
     // Do nothing if a modal is open
     if (window.modalIsOpen) { return; }
 
     // Do nothing if not on /breakout-gamePlay page
-    if(location.pathname !== "/breakout-gamePlay"){ return; }
-
+    if (location.pathname !== "/breakout-gamePlay") { return; }
+    
     if (keysPressed.enter) { return; }
+
     keysPressed.enter = true;
 
     if (lives > 0) {
@@ -371,7 +375,7 @@ function loadGame() {
     $(window).keydown(function (e) {
       if (e.which === 37) { keysPressed.left = true; }
       if (e.which === 39) { keysPressed.right = true; }
-      if (e.which === 13) { onEnterPress(); }
+      if (e.which === 13) { onEnterPress() }
     });
 
     $(window).keyup(function (e) {
@@ -508,7 +512,7 @@ function loadGame() {
     let prevTopOverThree = brickCSS.top - brickCSS.height * 3;
     prevLeft = brickCSS.left;
     for (let color of colorsUpThree) {
-
+      
       const brick = createBrick(prevLeft, prevTopOverThree, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -539,7 +543,7 @@ function loadGame() {
     let prevTopOver = brickCSS.top - brickCSS.height;
     prevLeft = brickCSS.left;
     for (let color of colorsUp) {
-
+      
       const brick = createBrick(prevLeft, prevTopOver, brickCSS.width, brickCSS.height, color, size);
 
       bricks.push(brick);
@@ -571,7 +575,7 @@ function loadGame() {
     prevLeft = brickCSS.left;
     for (let color of colorsUpTwo) {
       const brick = createBrick(prevLeft, prevTopOverTwo, brickCSS.width, brickCSS.height, color, size);
-
+      
       bricks.push(brick);
       $('.game').append(brick.$);
 
@@ -647,6 +651,7 @@ $.getJSON("/json/highscore.json", appendHighscores);
 
 $('#submit-new-score').on('click', function () {
   window.modalIsOpen = false;
+  showStartAgain();
 
   $.post("/add-score",
     {
@@ -655,11 +660,11 @@ $('#submit-new-score').on('click', function () {
     }, appendHighscores)
 
 
-  $('body').on('hidden.bs.modal', '.modal', function () {
+  /*$('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
-
-  });
-
+  });*/
+  $('#myModal').modal('hide');
+  window.modalIsOpen = false;
   $('body main > *').hide(); $('#footer-hide').show(); $('.highScoreBox').fadeIn(600);
   window.history.pushState("", "", "/breakout-highscore");
 });
@@ -680,7 +685,7 @@ function appendHighscores(highscores) {
   window.modalIsOpen = false;
   $('tbody').empty();
   let i = 1;
-  for (key in highscores) { 
+  for (key in highscores) {
     let value = highscores[key];
 
     let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
