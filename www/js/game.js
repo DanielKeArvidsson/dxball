@@ -646,6 +646,7 @@ $('#submit-new-score').on('click', function () {
     }, appendHighscores)
 
 
+
   /*$('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
   });*/
@@ -657,7 +658,6 @@ $('#submit-new-score').on('click', function () {
 
 
 
-
 function highscoreName() {
   window.modalIsOpen = true;
   $('#myModal').modal('show');
@@ -665,17 +665,17 @@ function highscoreName() {
   $('.endScore').text(score);
 };
 
+// dkflksdkklfjsdklf
+
+
 function appendHighscores(highscores) {
   window.modalIsOpen = false;
   $('tbody').empty();
   let i = 1;
-  
+  for (key in highscores) {
+    let value = highscores[key];
 
-
-      let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
-
-
-  
+    let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
 
     $('tbody').append(table);
     i++;
@@ -687,8 +687,5 @@ function appendHighscores(highscores) {
 //   let c = confirm('Varning! Du resizar skärmen, spelet måste tyvärr laddas om för att fungera');
 //   if(c){ location.reload(); }
 // })
-
-
-
 
 
