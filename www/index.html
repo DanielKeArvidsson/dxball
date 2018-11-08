@@ -90,15 +90,15 @@
         <div class="modal-dialog bg-dark border-danger" role="document">
           <div class="modal-content">
             <div class="modal-header bg-dark">
-              <h4 class="modal-title bg-dark text-light" id="myModalLabel">GAME OVER</h4>
+              <h4 class="modal-title bg-dark text-light ModalTitelText" id="myModalLabel">GAME OVER</h4>
             </div>
             <div class="modal-body bg-dark text-light">
-              <p>Your score is: <span class="endScore"></span> </p><br>
-              <p>Please enter your name below</p>
+              <p class="modalScore">Your score is: <span class="endScore"></span> </p><br>
+              <p class="modalName">Please enter your name below</p>
               <input type="text" class="form-control bg-dark text-light" id="recipient-name">
             </div>
             <div class="modal-footer bg-dark">
-              <button id="submit-new-score" class="btn btn-secondary" data-dismiss="modal">Save changes</button>
+              <button id="submit-new-score" class="btn btn-secondary modalButton" data-dismiss="modal">Save changes</button>
             </div>
           </div>
         </div>

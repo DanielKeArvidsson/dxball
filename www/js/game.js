@@ -304,6 +304,7 @@ function loadGame() {
       new Audio('/audio/winner.wav').play()
 
       $('.winRestart').show();
+
       highscoreName();
 
       $('#myModal').bind('keypress', function (e) {
