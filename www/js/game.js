@@ -225,7 +225,7 @@ function loadGame() {
       ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2;
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 15;
+      ball.speed += 35;
       updateInterface();
     }
   }
