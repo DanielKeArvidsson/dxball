@@ -1,3 +1,6 @@
+$('.nav-link').focus(function(){
+  $(this).blur();
+});
 
 $('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo').hide();
 
