@@ -10,9 +10,11 @@
     }]
   },
   "startText": {
-    "en": [{
-      "startInfo": "<h1>Play <span class=\"breaktext\"> breakout <\/span>   by Group 1<\/h1><p>Click on the pictures below to try some other versions of the game.</p>"
-    }]
+    "en": [
+      {
+        "startInfo": "<h1>Play <span class=\"breaktext\"> breakout <\/span> by Group 1<\/h1><p>Click on the pictures below to try some other versions of the game.</p>"
+      }
+    ]
   },
   "textHistoryEn": {
     "en": [{
