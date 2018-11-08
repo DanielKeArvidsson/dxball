@@ -2,7 +2,7 @@ $('.nav-link').focus(function(){
   $(this).blur();
 });
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo').hide();
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo, .winRestart').hide();
 
 let playCounter = 0;
 
@@ -297,8 +297,8 @@ function loadGame() {
 
     } else if (!bricks.length) {
       new Audio('/audio/winner.wav').play()
-      $('.main-text').text('CONGRATULATIONS - YOU WON');
-
+      
+      $('.winRestart').show();
       highscoreName();
       $('#myModal').bind('keypress', function (e) {
         if (e.keyCode == 13) {
@@ -632,6 +632,12 @@ function loadGame() {
 
     $('.gameOverButton').hide();
   });
+
+  $('.winRestart').click(function () {    
+    startNewGame();
+    $('.winRestart').hide();
+  });
+  
 }
 
 // highscore
