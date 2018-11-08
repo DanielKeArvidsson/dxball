@@ -28,6 +28,12 @@ function lang(myLang) {
         //body Swedish
         $(swe.startInfo).appendTo('.startText').addClass('sv');
         $(swe.theGame).appendTo('.about').addClass('sv');
+        $(swe.gameOverText).appendTo('.gameOverText').addClass('sv');
+        $(swe.gameOverTextButton).appendTo('.gameOverButton').addClass('sv');
+        $(swe.pausedText).appendTo('.mobilButton').addClass('sv');
+        $(swe.winText).appendTo('.winRestart').addClass('sv');
+        $(swe.playButton).appendTo('.playButton').addClass('sv');
+        $(swe.mainText).appendTo('.main-text').addClass('sv');
         $(swe.highscoreName).appendTo('.highscoreName').addClass('sv');
         $(swe.highscoreScore).appendTo('.highscoreScore').addClass('sv');
 
@@ -57,6 +63,12 @@ function Englang(myLang) {
         //body English
         $(eng.startInfo).appendTo('.startText').addClass('en');
         $(eng.theGame).appendTo('.about').addClass('en');
+        $(eng.gameOverText).appendTo('.gameOverText').addClass('en');
+        $(eng.gameOverTextButton).appendTo('.gameOverButton').addClass('en');
+        $(eng.pausedText).appendTo('.mobilButton').addClass('en');
+        $(eng.winText).appendTo('.winRestart').addClass('en');
+        $(eng.playButton).appendTo('.playButton').addClass('en');
+        $(eng.mainText).appendTo('.main-text').addClass('en');
         $(eng.highscoreName).appendTo('.highscoreName').addClass('en');
         $(eng.highscoreScore).appendTo('.highscoreScore').addClass('en');
 

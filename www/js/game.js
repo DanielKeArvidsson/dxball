@@ -35,6 +35,7 @@ function showStartAgain() {
   }
 }
 
+let score;
 
 function loadGame() {
   // Main variables
@@ -225,7 +226,7 @@ function loadGame() {
       ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2;
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 15;
+      ball.speed += 35;
       updateInterface();
     }
   }
@@ -407,8 +408,6 @@ function loadGame() {
     paddle.$.css('left', (paddle.left = gameBorders.width / 2 - paddle.width / 2));
   }
 
-
-
   function resetBall() {
     ball.$ = $('.ball');
     if (window.matchMedia("(min-width: 1200px)").matches) {
@@ -551,7 +550,6 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-
     }
 
     const colorsUpTwo = [
@@ -661,6 +659,7 @@ $('#submit-new-score').on('click', function () {
     }, appendHighscores)
 
 
+
   /*$('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
   });*/
@@ -703,8 +702,5 @@ function appendHighscores(highscores) {
 //   let c = confirm('Varning! Du resizar skärmen, spelet måste tyvärr laddas om för att fungera');
 //   if(c){ location.reload(); }
 // })
-
-
-
 
 

@@ -49,3 +49,6 @@ app.post('/add-score', (req, res) => {
   res.json(highscores)// respond to the browser, send the new/updated array
 
 });
+
+
+
