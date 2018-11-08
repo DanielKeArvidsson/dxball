@@ -30,7 +30,7 @@ function lang(myLang) {
         $(swe.theGame).appendTo('.about').addClass('sv');
         $(swe.gameOverText).appendTo('.gameOverText').addClass('sv');
         $(swe.gameOverTextButton).appendTo('.gameOverButton').addClass('sv');
-        $(swe.pausedText).appendTo('.mobilButton').addClass('sv');
+        $(swe.mobilButton).appendTo('.mobilButton').addClass('sv');
         $(swe.winText).appendTo('.winRestart').addClass('sv');
         $(swe.playButton).appendTo('.playButton').addClass('sv');
         $(swe.mainText).appendTo('.main-text').addClass('sv');
@@ -65,7 +65,7 @@ function Englang(myLang) {
         $(eng.theGame).appendTo('.about').addClass('en');
         $(eng.gameOverText).appendTo('.gameOverText').addClass('en');
         $(eng.gameOverTextButton).appendTo('.gameOverButton').addClass('en');
-        $(eng.pausedText).appendTo('.mobilButton').addClass('en');
+        $(eng.mobilButton).appendTo('.mobilButton').addClass('en');
         $(eng.winText).appendTo('.winRestart').addClass('en');
         $(eng.playButton).appendTo('.playButton').addClass('en');
         $(eng.mainText).appendTo('.main-text').addClass('en');
