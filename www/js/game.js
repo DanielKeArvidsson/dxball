@@ -291,7 +291,7 @@ function loadGame() {
       $('#myModal').bind('keypress', function (e) {
         if (e.keyCode == 13) {
           $('#submit-new-score').trigger('click');
-
+          window.location(false);
         }
       });
 
@@ -299,6 +299,7 @@ function loadGame() {
       new Audio('/audio/winner.wav').play()
       
       $('.winRestart').show();
+
       highscoreName();
       
       $('#myModal').bind('keypress', function (e) {
