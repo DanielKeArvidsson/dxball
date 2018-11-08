@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-.gameOverText {
+.gameOverText, .winRestart {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -128,6 +128,19 @@
     user-select: none;
 }
 
+.winRestart {
+    position:absolute;
+    user-select: none;
+    cursor: pointer;
+    border:2px solid white;
+    border-radius:20px;
+    height:34px;
+    width:200px;   
+    top: 60%;
+    left: 40%;
+    padding-top:3px;
+}
+
 @keyframes start-animation {
     from {
         text-shadow: 0 0 10px $white, 0 0 20px $white, 0 0 30px $white, 0 0 40px $secondary-color, 0 0 70px $secondary-color, 0 0 80px $secondary-color, 0 0 100px $secondary-color, 0 0 150px $secondary-color;
@@ -209,6 +222,7 @@
         left: 360px;
         font-size: 20px;
     }
+   
 
     .paddle {
         left: 335px;
@@ -308,7 +322,7 @@
         top: 250px;
     }
 
-    .gameOverText {
+    .gameOverText, .winRestart {
         top: 250px;
     }
 
@@ -396,7 +410,7 @@
         top: 600px;
     }
 
-    .gameOverText {
+    .gameOverText, .winRestart {
         font-size: 28px;
         top: 600px;
     }
@@ -505,7 +519,7 @@
         top: 200px;
     }
 
-    .gameOverText {
+    .gameOverText, .winRestart {
         top: 200px;
     }
 
@@ -592,7 +606,7 @@
         font-size: 10px;
     }
 
-    .gameOverText {
+    .gameOverText, .winRestart {
         top: 180px;
         font-size: 10px;
     }
