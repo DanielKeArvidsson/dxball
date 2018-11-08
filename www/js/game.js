@@ -25,17 +25,6 @@ $(window).keypress(function (e) {
 
 let score;
 
-function showStartAgain(){
-  $('.main-text').empty();
-  if (window.matchMedia("(hover : none)").matches) {
-    $('.gameOverButton').show();
-  }
-  else {
-    $('.gameOverText').show();
-  }
-}
-
-
 function loadGame() {
   // Main variables
   let lives;
@@ -406,8 +395,6 @@ function loadGame() {
     paddle.$.css('left', (paddle.left = gameBorders.width / 2 - paddle.width / 2));
   }
 
-
-
   function resetBall() {
     ball.$ = $('.ball');
     if (window.matchMedia("(min-width: 1200px)").matches) {
@@ -550,7 +537,6 @@ function loadGame() {
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1;
-
     }
 
     const colorsUpTwo = [
@@ -671,6 +657,7 @@ $('#submit-new-score').on('click', function () {
 
 
 
+
 function highscoreName() {
   window.modalIsOpen = true;
   $('#myModal').modal('show');
@@ -678,17 +665,17 @@ function highscoreName() {
   $('.endScore').text(score);
 };
 
-// dkflksdkklfjsdklf
-
-
 function appendHighscores(highscores) {
   window.modalIsOpen = false;
   $('tbody').empty();
   let i = 1;
-  for (key in highscores) {
-    let value = highscores[key];
+  
 
-    let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
+
+      let table = "<tr><td>" + i + "</td><td>" + value.name + "</td><td>" + value.score + "</td></tr>";
+
+
+  
 
     $('tbody').append(table);
     i++;
