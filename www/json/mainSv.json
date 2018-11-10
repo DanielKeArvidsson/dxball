@@ -26,12 +26,7 @@
     },
     "pausedText": {
         "sv":[{
-            "mobilButton": "<p>Pausad - klicka för att fortsätta...<\/p>"
-        }]
-    },
-    "winText": {
-        "sv":[{
-            "winRestart": "<p>Klicka för att spela igen<\/p>"
+            "mobilButton": "<p>Pausat - klicka för att fortsätta...<\/p>"
         }]
     },
     "playButton": {
@@ -41,9 +36,10 @@
     },
     "mainText": {
         "sv":[{
-            "main-text": "<p>PAUSAT - tryck ENTER för att fortsätta... <\/p>"
+            "mainText": "<p>PAUSAT - tryck ENTER för att fortsätta... <\/p>"
         }]
     },
+      
     
     "textHistorySv": {
         "sv": [{

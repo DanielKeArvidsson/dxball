@@ -21,7 +21,7 @@
   },
   "gameOverText": {
     "en": [{
-      "gameOverText": "<p>GAME OVER - press enter to play again<\/p>"
+      "gameOverText": "<p>GAME OVER - press ENTER to play again<\/p>"
     }]
   },
   "gameOverTextButton": {
@@ -34,11 +34,6 @@
       "mobilButton": "<p>Paused - click to continue...<\/p>"
     }]
   },
-  "winText": {
-    "en": [{
-      "winRestart": "<p>Click to play again<\/p>"
-    }]
-  },
   "playButton": {
     "en": [{
       "playButton": "<p>Play Game<\/p>"
@@ -46,7 +41,7 @@
   },
   "mainText": {
     "en": [{
-      "main-text": "<p>PAUSED - press ENTER to continue...<\/p>"
+      "mainText": "<p>PAUSED - press ENTER to continue...<\/p>"
     }]
   },
 

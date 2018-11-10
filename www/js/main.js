@@ -29,14 +29,12 @@ function lang(myLang) {
         $(swe.startInfo).appendTo('.startText').addClass('sv');
         $(swe.theGame).appendTo('.about').addClass('sv');
         $(swe.gameOverText).appendTo('.gameOverText').addClass('sv');
-        $(swe.gameOverTextButton).appendTo('.gameOverButton').addClass('sv');
+        $(swe.gameOverButton).appendTo('.gameOverButton').addClass('sv');
         $(swe.mobilButton).appendTo('.mobilButton').addClass('sv');
-        $(swe.winText).appendTo('.winRestart').addClass('sv');
         $(swe.playButton).appendTo('.playButton').addClass('sv');
         $(swe.mainText).appendTo('.main-text').addClass('sv');
         $(swe.highscoreName).appendTo('.highscoreName').addClass('sv');
         $(swe.highscoreScore).appendTo('.highscoreScore').addClass('sv');
-
 
         //footer swedish
         $(swe.adressP).appendTo('.adressP').addClass('sv');
@@ -64,9 +62,8 @@ function Englang(myLang) {
         $(eng.startInfo).appendTo('.startText').addClass('en');
         $(eng.theGame).appendTo('.about').addClass('en');
         $(eng.gameOverText).appendTo('.gameOverText').addClass('en');
-        $(eng.gameOverTextButton).appendTo('.gameOverButton').addClass('en');
+        $(eng.gameOverButton).appendTo('.gameOverButton').addClass('en');
         $(eng.mobilButton).appendTo('.mobilButton').addClass('en');
-        $(eng.winText).appendTo('.winRestart').addClass('en');
         $(eng.playButton).appendTo('.playButton').addClass('en');
         $(eng.mainText).appendTo('.main-text').addClass('en');
         $(eng.highscoreName).appendTo('.highscoreName').addClass('en');
@@ -81,9 +78,3 @@ function Englang(myLang) {
     }
   }
 }
-$(document).on('click', '.normal', function () {
-  $(".paddle").css("width", "200px");
-});
-$(document).on('click', '.hard', function () {
-  $(".paddle").css("width", "100px");
-});

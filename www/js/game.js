@@ -2,7 +2,7 @@ $('.nav-link').focus(function(){
   $(this).blur();
 });
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo, .winRestart').hide();
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo').hide();
 
 let playCounter = 0;
 
@@ -224,7 +224,7 @@ function loadGame() {
       ball.direction.x = ((ball.left + ball.width / 2 - paddle.left) / paddle.width - 0.5) * 2;
       ball.top = paddle.top - ball.height;
       score += 5;
-      ball.speed += 35;
+      ball.speed += 25;
       updateInterface();
     }
   }
@@ -277,7 +277,7 @@ function loadGame() {
     const bY = objB.top + objB.height / 2;
     const bX = objB.left + objB.width / 2;
     const direction = Math.abs(Math.atan2(aY - bY, aX - bX));
-    return (Math.abs(direction) < Math.PI / 4 || Math.abs(direction) > Math.PI / 4 * 3) ? 'horizontal' : 'vertical';
+    return (Math.abs(direction) < Math.PI / 4.4 || Math.abs(direction) > Math.PI / 4 * 3.4) ? 'horizontal' : 'vertical';
   }
 
 
@@ -296,9 +296,7 @@ function loadGame() {
       });
 
     } else if (!bricks.length) {
-      new Audio('/audio/winner.wav').play()
-      
-      $('.winRestart').show();
+      new Audio('/audio/winner.wav').play();
 
       highscoreName();
       
@@ -316,12 +314,12 @@ function loadGame() {
         $('.mobilButton').show();
       }
       else {
-        $('.main-text').text('PAUSED - press ENTER to continue...');
+        $('.main-text').show();
       }
     } else {
-      $('.main-text').text('');
+      $('.main-text').hide();
     }
-    $('.main-text').fadeIn(500);
+    
   }
 
 
@@ -634,10 +632,6 @@ function loadGame() {
     $('.gameOverButton').hide();
   });
 
-  $('.winRestart').click(function () {    
-    startNewGame();
-    $('.winRestart').hide();
-  });
   
 }
 
