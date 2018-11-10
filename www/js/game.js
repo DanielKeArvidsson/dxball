@@ -347,11 +347,13 @@ function loadGame() {
     updateInterface();
   }
 
-  window.oncontextmenu = function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-  };
+  if (window.matchMedia("(hover : none)").matches) {
+    window.oncontextmenu = function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      return false;
+      };
+  }
 
   $(".arrowright").on('touchstart', function () {
     keysPressed.right = true;
