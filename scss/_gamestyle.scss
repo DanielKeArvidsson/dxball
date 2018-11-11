@@ -11,14 +11,8 @@
     left: 10px;
 }
 
+.gameOverText,
 .main-text {
-    display: none;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
-
-.gameOverText, .winRestart {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -61,7 +55,8 @@
     }
 }
   
-.game, .game1 {
+.game,
+.game1 {
     position:relative;
     background-image:url('/images/gamebg.png');
     color: white;
@@ -104,6 +99,8 @@
     border: 2px solid white;
     border-radius: 30px;
     text-align: center;
+    user-select: none;
+    cursor: pointer;
 }
 
 .gameOverButton {
@@ -111,9 +108,12 @@
     border: 2px solid white;
     border-radius: 20px;
     text-align: center;
+    user-select: none;
+    cursor: pointer;
 }
 
-.powerup, .powerupTwo {
+.powerup,
+.powerupTwo {
     color:yellow;
     padding-top:2px;
     border-radius:20px;
@@ -126,19 +126,6 @@
     text-align: center;
     animation: rolling 1.5s linear infinite, change-background 1s linear infinite;
     user-select: none;
-}
-
-.winRestart {
-    position:absolute;
-    user-select: none;
-    cursor: pointer;
-    border:2px solid white;
-    border-radius:20px;
-    height:34px;
-    width:220px;   
-    top: 60%;
-    left: 40%;
-    padding-top:3px;
 }
 
 @keyframes start-animation {
@@ -247,14 +234,11 @@
 
     .startGameText {
         font-size: 60px;
-        top: 25vh;
+        top: 180px;
     }
 
+    .gameOverText, 
     .main-text {
-        top: 300px;
-    }
-
-    .gameOverText {
         top: 300px;
     }
 
@@ -313,14 +297,11 @@
 
     .startGameText {
         font-size: 45px;
-        top: 20vh;
+        top: 150px;
     }
 
+    .gameOverText,
     .main-text {
-        top: 250px;
-    }
-
-    .gameOverText, .winRestart {
         top: 250px;
     }
 
@@ -400,15 +381,11 @@
 
     .startGameText {
         font-size: 65px;
-        top: 15vh;
+        top: 300px;
     }
 
+    .gameOverText,
     .main-text {
-        font-size: 28px;
-        top: 600px;
-    }
-
-    .gameOverText, .winRestart {
         font-size: 28px;
         top: 600px;
     }
@@ -510,14 +487,11 @@
 
     .startGameText {
         font-size: 40px;
-        top: 15vh;
+        top: 110px;
     }
 
+    .gameOverText,
     .main-text {
-        top: 200px;
-    }
-
-    .gameOverText, .winRestart {
         top: 200px;
     }
 
@@ -600,15 +574,11 @@
 
     .startGameText {
         font-size: 28px;
-        top: 14vh;
+        top: 110px;
     }
 
+    .gameOverText,
     .main-text {
-        top: 180px;
-        font-size: 10px;
-    }
-
-    .gameOverText, .winRestart {
         top: 180px;
         font-size: 10px;
     }

@@ -1,8 +1,5 @@
-$('.nav-link').focus(function(){
-  $(this).blur();
-});
 
-$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo').hide();
+$('.heart1, .heart2, .heart3, .mobilButton, .gameOverButton, .gameOverText, .powerup, .powerupTwo, .main-text').hide();
 
 let playCounter = 0;
 

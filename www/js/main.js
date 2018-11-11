@@ -12,6 +12,14 @@ $('.svenska').on('click',function(){
   $('.sv').show();
 });
 
+$('.nav-link').focus(function(){
+  $(this).blur();
+});
+
+$('.navbar-toggler').focus(function(){
+  $(this).blur();
+});
+
 function lang(myLang) {
 
   for (let key in myLang) {
